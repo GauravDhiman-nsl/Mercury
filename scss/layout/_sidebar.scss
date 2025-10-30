@@ -1,0 +1,174 @@
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.sidebar {
+    background-color: var(--sidebar-bg);
+    padding: 0px;
+    max-width: 216px;
+    width: 100%;
+    min-height: calc(100vh - 58px);
+    border-right: 1px solid var(--border);
+    position: sticky;
+    top: 0px;
+    @include flex-col(flex-start, stretch, 1.5rem); // Uses your mixin for layout
+
+    // --- Sidebar Header ---
+    &__header {
+        @include flex-row(space-between, center);
+        padding: 0 10px;
+        font-weight: font-weight(medium);
+        color: var(--sidebar-text);
+        border-bottom: var(--border) 1px solid;
+        min-height: 64px;
+        
+
+        &__brand {
+            @include flex-row(flex-start, center, 0.50rem);
+            border: none;
+            width: 100%;
+            border-radius: 4px;
+            background: none;
+            cursor: pointer;
+            padding: 4px 12px 4px 4px;
+            span{
+                color: var(--color-secondary);
+                font-size: font-size(sm);
+                font-weight: font-weight(regular);
+            }
+
+            &:hover {
+                background-color: var(--sidebar-item-active-bg);
+                border-radius: 8px;
+            }
+        }
+
+        &__icon-wrapper {
+            .sidebar-header-icon {
+                display: inline-block;
+                width: 32px;
+                height: 32px;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+        }
+
+        // Icons will inherit their color from the parent's text color
+        svg {
+            color: var(--color-primary);
+            margin-left: auto;
+        }
+    }
+
+
+    &__nav {
+        list-style: none;
+        padding: 0 12px;
+        margin: 0;
+        @include flex-col(flex-start, stretch, 4px); // Small gap between items
+    }
+
+
+    &__heading {
+        color: var(--color-tertiary); // Uses theme variable
+        font-size: font-size(xs);
+        font-weight: font-weight(semibold);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 8px 12px;
+        margin-top: 1rem;
+    }
+}
+
+.nav-item-wrapper{
+    @include flex-row(flex-start, center);
+    border-radius: 8px;
+    overflow: hidden;
+     .nav-item{
+        color: var(--color-primary); // On hover, text becomes the primary sidebar color
+        background-color: transparent;
+        &:hover {
+        color: var(--color-secondary); // On hover, text becomes the primary sidebar color
+        }
+     }
+      &:hover {
+        background-color: var(--sidebar-item-active-bg);
+    }
+    .nav-item-btn{
+        @include flex-row(center, center);
+        background: none;
+        border: none;
+        margin-left: auto;
+        height: 36px;
+        width: 36px;
+        &:hover {
+            cursor: pointer;
+            background-color: var(--sidebar-item-active-bg);
+        }
+    }
+    
+}
+.nav-item-menu-box{
+    display: none
+}
+.nav-item {
+    @include flex-row(flex-start, center);
+    padding: 6px 8px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: font-weight(regular);
+    font-size: font-size(base);
+    @include transition(color, background-color); 
+
+    &:hover {
+        color: var(--color-secondary);
+        background-color: var(--sidebar-item-active-bg);
+        .nav-item__icon {
+            color: var(--color-secondary);
+        }
+    }
+
+    &--active {
+        background-color: var(--sidebar-item-active-bg); 
+        color: var(--color-secondary);
+        font-weight: font-weight(semibold);
+
+
+        .nav-item__icon {
+            color: var(--accent);
+        }
+    }
+
+    &__icon {
+        @include flex-center;
+        margin-right: 12px;
+        width: 24px;
+        color: var(--color-secondary);
+        @include transition(color);
+
+        .icon {
+            font-size: 13px;
+            height: 1em;
+        }
+    }
+
+    &__text {
+        flex-grow: 1;
+    }
+
+    &__chevron {
+        color: var(--color-secondary);
+        transform: rotate(180deg);
+    }
+
+    &__badge {
+        background-color: var(--badge-bg); 
+        color: var(--badge-text);
+        font-size: font-size(xs);
+        font-weight: font-weight(semibold);
+        padding: 2px 8px;
+        border-radius: 4px;
+    }
+
+}

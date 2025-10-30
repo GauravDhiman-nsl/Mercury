@@ -1,0 +1,84 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+@use '../themes/dark' as *;
+@use '../themes/default' as *;
+
+$toggle-width:   82.53px;;
+$toggle-height:  40px;
+$knob-size:      40.66px;
+$gap:            4px;
+
+.toggle-switch {
+  display: inline-block;
+  width: $toggle-width;
+  height: $toggle-height;
+  border-radius: 8px;
+  background: var(--bg-default);
+  position: relative;
+  border: var(--border);
+  cursor: pointer;
+  outline: none;
+  @include transition;
+  overflow: hidden;
+
+  &[aria-checked="true"] {
+    background: var(--bg-default);
+
+    .toggle-knob {
+      transform: translateX(calc(#{$toggle-width} - #{$knob-size} - #{$gap} * 2));
+    }
+
+    .left-icon  { opacity: 0.4; color: var(--color-secondary); }
+    .right-icon { opacity: 1;   color: var(--icon-active); }
+  }
+
+  .toggle-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 $gap;
+  }
+
+  .icon {
+    width: 16.66px;
+    height: 16.66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease, color 0.3s ease;
+    color: $color-icon-inactive;
+
+    &.left-icon  { opacity: 1; }
+    &.right-icon { opacity: 0.4; }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+  }
+
+  .toggle-knob {
+    position: absolute;
+    top: $gap;
+    left: $gap;
+    width: $knob-size;
+    height: $knob-size;
+    background: var(--bg-default);
+    border-radius: 50%;
+    box-shadow: 0 0px 20px var(--bg-secondary);
+    @include transition;
+    pointer-events: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .toggle-switch[aria-checked="true"] {
+    background: var(--bg-default);
+    .right-icon { color: var(--icon-active) }
+  }
+}

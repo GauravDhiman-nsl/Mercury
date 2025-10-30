@@ -1,0 +1,39 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+@use '../themes/dark' as *;
+@use '../themes/default' as *;
+
+.dashboard-wrapper-box{
+    @include flex-col('center',flex-start);
+    width: 100%;
+    max-width: 968px;
+    margin: 22px auto;
+    padding-bottom: 112px;
+    .dasboard-title-box{
+    @include flex-row('center',flex-start,40px);
+}
+
+.charts-section{
+    @include flex-col(center,flex-start,24px);
+    margin-bottom:24px;
+    width: 100%;
+    .charts-wrapper{
+        @include grid(repeat(2, 1fr), auto, 20px);
+        width: 100%;
+    }
+
+}
+}
+.mini-card-section{
+    @include grid(repeat(3, 1fr), auto, 20px);
+        width: 100%;
+}
+
+.money-movement-section{
+    @include flex-col(center,flex-start,24px);
+    margin-top: 40px;
+    margin-bottom:24px;
+    width: 100%;
+    
+}

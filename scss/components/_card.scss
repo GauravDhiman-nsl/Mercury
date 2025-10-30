@@ -1,0 +1,206 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+@use '../themes/dark' as *;
+@use '../themes/default' as *;
+
+.card-box{
+    @include flex-col;
+    border-radius:18px;
+    box-shadow: 0 0 2px 0 #afb2ce8f, 0 1px 4px 0 #0404341a;
+    background: var(--bg-default-secondary);
+
+    .card-body{
+        @include flex-col;
+        padding: 24px 16px 20px;
+        .card-title-box{
+            @include flex-row(space-between,flex-start);
+            margin-bottom: 12px;
+            .card-title-text{
+                h1{
+                    font-size: font-size(base);
+                    font-weight: font-weight(regular);
+                }
+            }
+            .card-text-green{
+                color: var(--color-green) !important;
+            }
+
+        }
+        .card-head-actions{
+            @include flex-row(center,center,12px)
+        }
+    }
+    .card-footer{
+        @include flex-center(flex-start,center);
+        border-top:1px solid var(--border);
+        padding: 16px 24px;
+        .footer-content{
+            @include flex-row(flex-start,center);
+            width: 100%;
+            .icon{
+                @include flex-center;
+                margin-inline-end:12px; 
+            }
+            .content-warper{
+                @include flex-row(space-between,center);
+                flex-grow: 1;
+                .text{
+                    font-size:font-size(base);
+                    font-weight: font-weight(regular);
+                    color:var(--color-secondary);
+                }
+            }
+        }   
+    }
+}
+.card-list-default{
+    @include flex-col(flex-start,center,0);
+    .card-list-box{
+        @include flex-row(flex-start,center,12px);
+        padding: 8px;
+        width: 100%;
+        border-radius: 4px;
+        text-decoration: none;
+        cursor: pointer;
+        .icon{
+            @include flex-center;
+            font-size: 10px;
+            img{
+                display: inline-block;
+                width: 28px;
+                height: 28px;
+                border: 1px solid var(--border);
+                border-radius: 50%;
+            }
+            .alpha-bet{
+                @include flex-center(center,center);
+                border-radius: 50%;
+                width: 28px;
+                height: 28px;
+                background: var(--bg-alphabet);
+                color: var(--color-secondary);
+                font-size: 10px;
+                
+            }
+        }
+        &:hover{
+            background: var(--bg-secondary);
+        }
+        .list-content{
+            @include flex-row(space-between,center);
+            flex-grow: 1;
+            .value-name{
+                font-size: font-size(base);
+                font-weight: font-weight(regular);
+                color: var(--color-secondary);
+            }
+            .value-count{
+                font-size: font-size(base);
+                font-weight: font-weight(regular);
+                color: var(--color-secondary);
+                sup{
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+    .card-list-heading{
+        @include flex-row(flex-start,center);
+        font-size:font-size(base);
+        font-weight:font-weight(regular);
+        color:var(--color-secondary);
+        width: 100%;
+    }
+}
+.mini-card-box{
+    @include flex-col;
+    border-radius:18px;
+    box-shadow: 0 0 2px 0 #afb2ce8f, 0 1px 4px 0 #0404341a;
+    background: var(--bg-default-secondary);
+    padding: 24px;
+      .card-body{
+        @include flex-col;
+        min-height: 142.7px;
+        .card-title-box{
+            @include flex-row(space-between,flex-start);
+            .card-title-text{
+                h1{
+                    font-size: font-size(base);
+                    font-weight: font-weight(regular);
+                }
+            }
+
+        }
+        .card-head-actions{
+            @include flex-row(center,center,12px)
+        }
+    }
+    .card-footer{
+        @include flex-center(flex-start,center);
+        border-top:1px solid var(--border);
+        padding:24px 0 0;
+        .footer-content{
+            @include flex-row(space-between,center);
+            width: 100%;
+            .content-warper{
+                @include flex-row(space-between,center);
+                width: 100%;
+                .text-wrapper{
+                    @include flex-col;
+                    .text-head{
+                    @include flex-row(flex-start,center,4px);
+                    font-size:13px;
+                    font-weight: font-weight(regular);
+                    color:var(--color-secondary);
+                    }
+                    .text-body{
+                    font-size:font-size(base);
+                    font-weight: font-weight(regular);
+                    color:var(--color-secondary);
+                    a{  
+                          font-size:font-size(base);
+                    font-weight: font-weight(regular);
+                    color:var(--color-secondary);
+                        text-decoration: none;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                    }
+                   
+                    }
+                }
+            }
+        }   
+    }
+}
+.card-value-amount{
+    @include flex-row(flex-start,center);
+    font-size:font-size(md);
+    font-weight: font-weight(regular);
+    color: var(--color-secondary);
+    sup{
+        font-size: 10.87px;
+    }
+}
+.mini-card-grid{
+    @include flex-row(flex-start,center,15px);
+    width: 100%;
+    margin-top: 24px;
+    .mini-card-col{
+        @include flex-col(center,flex-start);
+        
+        .grid-head{
+            @include flex-row(flex-start,center);
+            font-size: 13px;
+            font-weight: font-weight(regular);
+            color: var(--color-secondary);
+        }
+        .grid-body{
+            @include flex-row(flex-start,center);
+            font-size: var(base);
+            font-weight: font-weight(regular);
+            color: var(--color-secondary);
+        }
+    }
+}

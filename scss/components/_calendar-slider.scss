@@ -1,0 +1,59 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+@use '../themes/dark' as *;
+@use '../themes/default' as *;
+.money-movement {
+@include flex-col(flex-start,center,24px);
+width: 100%;
+
+
+/* Header */
+.money-header {
+@include flex-row(flex-start,center,16px);
+  flex-wrap: wrap;
+  width: 100%;
+
+}
+
+.section-title {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-secondary);
+}
+
+/* Month Slider */
+.month-slider {
+  @include flex-row(center,center,8px);
+  font-size:font-size(base);
+  font-weight: font-weight(regular);
+  color: var(--color-secondary);
+}
+
+.nav-btn {
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: none;
+  }
+}
+
+.month-display {
+  min-width: 80px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Grid */
+.money-grid {
+    @include grid(1fr 1fr);
+  width: 100%;
+  gap: 24px;
+  .card-title-box{
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+  }
+}
+
+}

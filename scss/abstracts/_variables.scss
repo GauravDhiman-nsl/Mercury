@@ -1,0 +1,29 @@
+$font-family-base: 'Inter', 'Segoe UI', Arial, sans-serif;
+
+$font-sizes: (
+  xs: 12px,    
+  sm: 14px,   
+  base: 15px,   
+  md: 19px, 
+  lg: 28px,     
+  xl: 32px,    
+  display: 40px
+);
+
+$font-weights: (
+  thin: 300,
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700
+);
+
+$line-heights: (
+  tight: 1.1,
+  normal: 1.5,
+  relaxed: 1.7
+);
+
+$breakpoint-desktop: 1201px;
+$breakpoint-tabs:1200px;
+$breakpoint-mobile:  767px;

@@ -1,0 +1,33 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+body {
+  font-family: $font-family-base;
+  font-size: font-size(base);
+  font-weight: font-weight(regular);
+  line-height: line-height(normal);
+  background: var(--bg);
+  color: var(--color-primary);
+}
+
+h1 {
+  font-size: font-size(lg);
+  font-weight: font-weight(regular);
+  line-height: line-height(normal);
+  color: var(--color-secondary);
+  margin: 0;
+}
+h2 {
+  font-size: font-size(lg);
+  font-weight: font-weight(semibold);
+}
+h3 {
+  font-size: font-size(md);
+  font-weight: font-weight(medium);
+}
+
+p, .meta, .secondary {
+  font-size: font-size(sm);
+  color: var(--color-secondary);
+}

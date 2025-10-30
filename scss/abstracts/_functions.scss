@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+
+@function font-size($size) {
+  @return map.get($font-sizes, $size);
+}
+
+@function font-weight($weight) {
+  @return map.get($font-weights, $weight);
+}
+
+@function line-height($lh) {
+  @return map.get($line-heights, $lh);
+}
+

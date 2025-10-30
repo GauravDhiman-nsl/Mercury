@@ -1,0 +1,23 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.page-wraper{
+    @include flex-row(flex-start);
+    flex-grow: 1;
+    isolation: isolate;
+    overflow: auto;
+    width: 100%;
+    gap: calc(100vw - 100%);
+    background: var(--bg-default);
+}
+.main-content-box{
+    @include flex-col(flex-start,center,0);
+    flex-grow: 1;
+    min-height: 100%;
+    padding-inline-end: calc(100vw - 100%);
+
+    @include tabs{
+    padding: 20px;
+    }
+}
