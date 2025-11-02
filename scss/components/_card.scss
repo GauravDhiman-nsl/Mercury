@@ -227,6 +227,9 @@
         @include flex-center(flex-start,center);
         border-top:1px solid var(--border);
         padding:24px;
+        &.mt-auto{
+            margin-top: auto;
+        }
         .footer-content{
             @include flex-row(space-between,center);
             width: 100%;

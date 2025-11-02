@@ -84,7 +84,7 @@
         margin: 0;
         width: 100%;
         border-radius: 12px;
-        border: 1px solid #70739329;
+        border: 1px solid var(--border);
 
         .checklist-item {
             @include flex-center(center, center);
@@ -92,36 +92,49 @@
             height: 60px;
             gap: 12px;
 
-            &:not(:last-child) {
-                border-bottom: 1px solid #70739329;
+            .item-icon {
+                color: var(--color-secondary);
+                display: inline-flex;
+
+                svg {
+                    height: 16px;
+                }
             }
 
+            .item-label {
+                flex-grow: 1;
+                font-size: font-size(sm);
+                font-weight: font-weight(medium);
+                color: var(--color-secondary);
+            }
+
+            .item-action {
+                @include flex-center(center, center);
+                height: 24px;
+                width: 24px;
+                background-color: var(--bg-secondary);
+                border-radius: 50%;
+                color: var(--color-secondary);
+
+                svg {
+                    height: 1em;
+                }
+            }
+
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--border);
+            }
 
             &:hover {
                 text-decoration: none;
-                background-color: #7073930f;
+                background-color: var(--sidebar-item-active-bg);
                 box-shadow: 0px 1px 4px #f4f5f91a;
+
+                .item-action {
+                    background-color: var(--icon-active);
+                    color: var(--color-white);
+                }
             }
-        }
-
-        .item-icon {
-            color: var(--color-secondary);
-            display: inline-flex;
-
-            svg {
-                height: 16px;
-            }
-        }
-
-        .item-label {
-            flex-grow: 1;
-            font-size: font-size(sm);
-            font-weight: font-weight(medium);
-            color: var(--color-secondary);
-        }
-
-        .item-action {
-            display: inline-flex;
         }
     }
 }

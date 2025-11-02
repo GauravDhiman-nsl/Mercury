@@ -7,108 +7,140 @@
 
 .chart-card {
 
-  .balance-box-card{
+  .balance-box-card {
     @include flex-col;
 
-  .balance {
-    font-size:font-size(lg);
-    font-weight: font-weight(semibold);
-    color: var(--text-secondary);
-    margin-bottom:12px;
-  }
-  }
-
-  .card-subtitlebox-row{
-    @include flex-row(space-between,row);
-    width: 100%;
-  .subtitle {
-    font-size: font-size(base);
-    color: var(--text-secondary);
-    display: inline-block;
-
-    .dropdown {
-      font-size: var(--dropdown-font-size, 12px);
-      vertical-align: middle;
-      margin-left: var(--dropdown-margin-left, 4px);
+    .balance {
+      font-size: font-size(lg);
+      font-weight: font-weight(semibold);
+      color: var(--text-secondary);
+      margin-bottom: 12px;
     }
   }
 
-  .default-changes {
-    display: flex;
-    align-items: center;
-    gap: var(--changes-gap, 16px);
-    margin-bottom: var(--changes-margin-bottom, 20px);
-    font-size: var(--changes-font-size, 14px);
-    font-weight: var(--changes-font-weight, 500);
+  .card-subtitlebox-row {
+    @include flex-row(space-between, row);
+    width: 100%;
 
-    .change-item {
-    @include flex-center;
-      gap: 6px;
+    .subtitle {
+      font-size: font-size(base);
+      color: var(--text-secondary);
+      display: inline-block;
+
+      .dropdown {
+        font-size: var(--dropdown-font-size, 12px);
+        vertical-align: middle;
+        margin-left: var(--dropdown-margin-left, 4px);
+      }
+    }
+
+    .default-changes {
+      display: flex;
+      align-items: center;
+      gap: var(--changes-gap, 16px);
+      margin-bottom: var(--changes-margin-bottom, 20px);
+      font-size: var(--changes-font-size, 14px);
+      font-weight: var(--changes-font-weight, 500);
+
+      .change-item {
+        @include flex-center;
+        gap: 6px;
+
+        .arrow {
+          font-size: font-size(base);
+        }
+
+        &.positive {
+          .arrow {
+            color: var(--color-green);
+          }
+        }
+
+        &.negative {
+          .arrow {
+            color: var(--error-color);
+          }
+        }
+      }
+    }
+
+    .change {
+      display: flex;
+      align-items: center;
+      gap: var(--change-gap, 4px);
+      font-size: var(--change-font-size, 14px);
+      margin-bottom: var(--change-margin-bottom, 20px);
+      font-weight: var(--change-font-weight, 500);
 
       .arrow {
-        font-size: font-size(base);
+        font-size: var(--arrow-font-size, 12px);
+        line-height: 1;
       }
 
-      &.positive{
-        .arrow{
-        color: var(--color-green);
+      &.positive {
+        .arrow {
+          color: var(--color-green);
         }
       }
 
-      &.negative{
-        .arrow{
-        color: var(--error-color);
+      &.negative {
+        .arrow {
+          color: var(--error-color);
         }
       }
     }
-  }
-
-  .change {
-    display: flex;
-    align-items: center;
-    gap: var(--change-gap, 4px);
-    font-size: var(--change-font-size, 14px);
-    margin-bottom: var(--change-margin-bottom, 20px);
-    font-weight: var(--change-font-weight, 500);
-
-    .arrow {
-      font-size: var(--arrow-font-size, 12px);
-      line-height: 1;
-    }
-
-    &.positive {
-      .arrow{
-        color: var(--color-green);
-        }
-    }
-
-    &.negative {
-    .arrow{
-        color: var(--error-color);
-        }
-    }
-  }
   }
 
   .chart-container {
     position: relative;
-    @include flex-col(flex-start,center);
+    @include flex-col(flex-start, center);
     width: 100%;
     height: 100%;
+
     #chart {
       width: 100%;
       height: 100%;
       display: block;
     }
+
     .x-axis {
-      @include flex-row(center,center);
+      @include flex-row(center, center);
 
 
-    span {
-      @include flex-center;
+      span {
+        @include flex-center;
+      }
     }
   }
+
+
+}
+
+.movementBarPastMonths {
+  @include flex-center(flex-end, flex-end);
+  flex-direction: row-reverse;
+  position: relative;
+  min-width: 128px;
+  min-height: 56px;
+
+  .movementMonth {
+    @include flex-center(flex-end, flex-start);
+    flex: 1 0 0;
+    flex-direction: column;
+    gap: 4px;
+    height: 100%;
   }
 
-  
+  .movementBar {
+    align-self: stretch;
+    background: linear-gradient(var(--movement-chart-top), var(--movement-chart-bottom));
+    border-top: 1px solid var(--link-text);
+    flex-shrink: 0;
+    opacity: 50%;
+    transition: height .2s, border 50ms, background 50ms;
+
+    &:hover {
+      opacity: 100%;
+    }
+  }
 }

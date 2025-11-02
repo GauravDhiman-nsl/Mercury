@@ -195,6 +195,8 @@ p, .meta, .secondary {
   --text-emphasized: #1e1e2a;
   --box-shadow-01: #afb2ce8f;
   --box-shadow-02: #0404341a;
+  --movement-chart-top: #5266eb29;
+  --movement-chart-bottom: #5266eb05;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -228,6 +230,8 @@ p, .meta, .secondary {
     --text-emphasized: #f4f5f9;
     --box-shadow-01: #afb2ce8f;
     --box-shadow-02: #0404341a;
+    --movement-chart-top: #8da4f547;
+    --movement-chart-bottom: #8da4f514;
   }
 }
 .button {
@@ -684,6 +688,9 @@ p, .meta, .secondary {
   border-top: 1px solid var(--border);
   padding: 24px;
 }
+.card-footer-grid-box.mt-auto {
+  margin-top: auto;
+}
 .card-footer-grid-box .footer-content {
   display: flex;
   flex-direction: row;
@@ -906,6 +913,36 @@ p, .meta, .secondary {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.movementBarPastMonths {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: row-reverse;
+  position: relative;
+  min-width: 128px;
+  min-height: 56px;
+}
+.movementBarPastMonths .movementMonth {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex: 1 0 0;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+}
+.movementBarPastMonths .movementBar {
+  align-self: stretch;
+  background: linear-gradient(var(--movement-chart-top), var(--movement-chart-bottom));
+  border-top: 1px solid var(--link-text);
+  flex-shrink: 0;
+  opacity: 50%;
+  transition: height 0.2s, border 50ms, background 50ms;
+}
+.movementBarPastMonths .movementBar:hover {
+  opacity: 100%;
 }
 
 .progress-bar-default {
@@ -1361,7 +1398,7 @@ p, .meta, .secondary {
   margin: 0;
   width: 100%;
   border-radius: 12px;
-  border: 1px solid rgba(112, 115, 147, 0.1607843137);
+  border: 1px solid var(--border);
 }
 .wizard-container .wizard-checklist .checklist-item {
   display: flex;
@@ -1371,29 +1408,43 @@ p, .meta, .secondary {
   height: 60px;
   gap: 12px;
 }
-.wizard-container .wizard-checklist .checklist-item:not(:last-child) {
-  border-bottom: 1px solid rgba(112, 115, 147, 0.1607843137);
-}
-.wizard-container .wizard-checklist .checklist-item:hover {
-  text-decoration: none;
-  background-color: rgba(112, 115, 147, 0.0588235294);
-  box-shadow: 0px 1px 4px rgba(244, 245, 249, 0.1019607843);
-}
-.wizard-container .wizard-checklist .item-icon {
+.wizard-container .wizard-checklist .checklist-item .item-icon {
   color: var(--color-secondary);
   display: inline-flex;
 }
-.wizard-container .wizard-checklist .item-icon svg {
+.wizard-container .wizard-checklist .checklist-item .item-icon svg {
   height: 16px;
 }
-.wizard-container .wizard-checklist .item-label {
+.wizard-container .wizard-checklist .checklist-item .item-label {
   flex-grow: 1;
   font-size: 14px;
   font-weight: 500;
   color: var(--color-secondary);
 }
-.wizard-container .wizard-checklist .item-action {
-  display: inline-flex;
+.wizard-container .wizard-checklist .checklist-item .item-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  width: 24px;
+  background-color: var(--bg-secondary);
+  border-radius: 50%;
+  color: var(--color-secondary);
+}
+.wizard-container .wizard-checklist .checklist-item .item-action svg {
+  height: 1em;
+}
+.wizard-container .wizard-checklist .checklist-item:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+.wizard-container .wizard-checklist .checklist-item:hover {
+  text-decoration: none;
+  background-color: var(--sidebar-item-active-bg);
+  box-shadow: 0px 1px 4px rgba(244, 245, 249, 0.1019607843);
+}
+.wizard-container .wizard-checklist .checklist-item:hover .item-action {
+  background-color: var(--icon-active);
+  color: var(--color-white);
 }
 
 .dropdown-menu-box {

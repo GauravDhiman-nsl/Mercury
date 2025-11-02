@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./scss/style.css">
+    <meta name="viewport" content="width=500, initial-scale=0.6" data-rh="true">
 </head>
 
 <body>
@@ -1286,7 +1287,7 @@
 
                                     </div>
                                 </div>
-                                <div class="card-footer-grid-box">
+                                <div class="card-footer-grid-box mt-auto">
                                     <div class="footer-content">
                                         <div class="content-warper">
                                             <div class="text-wrapper">
@@ -1298,14 +1299,17 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <a class="links" href="#"><span>View</span><svg aria-hidden="true"
-                                                focusable="false" data-prefix="far" width="6.65" height="10.5"
-                                                data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 320 512">
-                                                <path fill="currentColor"
-                                                    d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z">
-                                                </path>
-                                            </svg></a>
+                                        <div class="movementBarPastMonths" style="height: 56px;">
+                                            <div class="movementMonth">
+                                                <div class="movementBar" style="height: 56px;"></div>
+                                            </div>
+                                            <div class="movementMonth">
+                                                <div class="movementBar" style="height: 3px;"></div>
+                                            </div>
+                                            <div class="movementMonth">
+                                                <div class="movementBar" style="height: 0px;"></div>
+                                            </div>
+                                        </div>
 
                                     </div>
                                 </div>
@@ -1378,7 +1382,7 @@
 
                                     </div>
                                 </div>
-                                <div class="card-footer-grid-box">
+                                <div class="card-footer-grid-box mt-auto">
                                     <div class="footer-content">
                                         <div class="content-warper">
                                             <div class="text-wrapper">
@@ -1388,6 +1392,19 @@
                                                 <div class="text-body">
                                                     $34.9K
                                                 </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="movementBarPastMonths" style="height: 56px;">
+                                            <div class="movementMonth">
+                                                <div class="movementBar" style="height: 36px;"></div>
+                                            </div>
+                                            <div class="movementMonth">
+                                                <div class="movementBar" style="height: 23px;"></div>
+                                            </div>
+                                            <div class="movementMonth">
+                                                <div class="movementBar" style="height: 12px;"></div>
                                             </div>
                                         </div>
 
@@ -1612,43 +1629,87 @@
 
                 <nav class="tabs">
                     <div role="tablist" aria-label="wizard Tabs">
-                        <button class="tab active">Startup</button>
-                        <button class="tab">Ecommerce</button>
-                        <button class="tab">Agency</button>
-                        <button class="tab">More</button>
+                        <button role="tab" aria-selected="true" aria-controls="startup-panel" id="startup-tab" class="tab active">Startup</button>
+                        <button role="tab" aria-selected="false" aria-controls="ecommerce-panel" id="ecommerce-tab" class="tab" tabindex="-1">Ecommerce</button>
+                        <button role="tab" aria-selected="false" aria-controls="agency-panel" id="agency-tab" class="tab" tabindex="-1">Agency</button>
+                        <button role="tab" aria-selected="false" aria-controls="more-panel" id="more-tab" class="tab" tabindex="-1">More</button>
                     </div>
                 </nav>
+                <div class="tab-content">
+                    <div class="wizard-checklist" id="startup-panel" role="tabpanel" tabindex="0" aria-labelledby="startup-tab">
+                        <!-- ... checklist items from previous example ... -->
+                        <a href="#" class="checklist-item">
+                            <div class="item-icon">
+                                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="money-bill-wave" class="svg-inline--fa fa-money-bill-wave styles-module__leftIcon_pRtWC" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M265.7 407.9c4.5-1.1 9-2.3 13.5-3.4c0 0 0 0 0 0c55.9-14.3 119.4-30.6 185.3-28.7c4.1-31.4 30.9-55.7 63.5-55.7l0-176c-35.3 0-63.9-28.6-64-63.9c-47-1.7-96.8 9.5-153.7 24c-4.5 1.1-9 2.3-13.5 3.5c0 0 0 0 0 0c-55.9 14.3-119.4 30.6-185.3 28.7C107.4 167.7 80.5 192 48 192l0 176c35.3 0 63.9 28.6 64 63.9c47 1.7 96.8-9.5 153.7-24zM0 421.5L0 113C0 88.8 25.4 72.7 48.4 79C128.2 101 208.1 80.6 288 60.3c86.9-22.1 173.8-44.3 260.7-12C565.8 54.6 576 72 576 90.5L576 399c0 24.3-25.4 40.3-48.3 34C447.8 411 367.9 431.4 288 451.7c-86.9 22.1-173.8 44.3-260.7 12C10.2 457.4 0 440 0 421.5zM288 352c-44.2 0-80-43-80-96s35.8-96 80-96s80 43 80 96s-35.8 96-80 96z"></path></svg>
+                            </div>
+                            <span class="item-label">Send money to contractors</span>
+                            <div class="item-action">
+                                <svg aria-hidden="false" focusable="false" data-prefix="far" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right styles-module__chevronIcon_IPh9P" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z"></path></svg>
+                            </div>
+                        </a>
+                        <a href="#" class="checklist-item">
+                            <div class="item-icon">
+                                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="users" class="svg-inline--fa fa-users styles-module__leftIcon_pRtWC" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M144 160A80 80 0 1 0 144 0a80 80 0 1 0 0 160zm368 0A80 80 0 1 0 512 0a80 80 0 1 0 0 160zM0 298.7C0 310.4 9.6 320 21.3 320l213.3 0c.2 0 .4 0 .7 0c-26.6-23.5-43.3-57.8-43.3-96c0-7.6 .7-15 1.9-22.3c-13.6-6.3-28.7-9.7-44.6-9.7l-42.7 0C47.8 192 0 239.8 0 298.7zM405.3 320l213.3 0c11.8 0 21.3-9.6 21.3-21.3C640 239.8 592.2 192 533.3 192l-42.7 0c-15.9 0-31 3.5-44.6 9.7c1.3 7.2 1.9 14.7 1.9 22.3c0 38.2-16.8 72.5-43.3 96c.2 0 .4 0 .7 0zM320 176a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm0 144a96 96 0 1 0 0-192 96 96 0 1 0 0 192zm-58.7 80l117.3 0c39.8 0 73.2 27.2 82.6 64l-282.6 0c9.5-36.8 42.9-64 82.6-64zm0-48C187.7 352 128 411.7 128 485.3c0 14.7 11.9 26.7 26.7 26.7l330.7 0c14.7 0 26.7-11.9 26.7-26.7C512 411.7 452.3 352 378.7 352l-117.3 0z"></path></svg>
+                            </div>
+                            <span class="item-label">Invite your team members</span>
+                            <div class="item-action">
+                                <svg aria-hidden="false" focusable="false" data-prefix="far" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right styles-module__chevronIcon_IPh9P" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z"></path></svg>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="wizard-checklist" id="ecommerce-panel" role="tabpanel" tabindex="0" aria-labelledby="ecommerce-tab" hidden>                       
+                        <a href="#" class="checklist-item">
+                            <div class="item-icon">
+                                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="users" class="svg-inline--fa fa-users styles-module__leftIcon_pRtWC" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M144 160A80 80 0 1 0 144 0a80 80 0 1 0 0 160zm368 0A80 80 0 1 0 512 0a80 80 0 1 0 0 160zM0 298.7C0 310.4 9.6 320 21.3 320l213.3 0c.2 0 .4 0 .7 0c-26.6-23.5-43.3-57.8-43.3-96c0-7.6 .7-15 1.9-22.3c-13.6-6.3-28.7-9.7-44.6-9.7l-42.7 0C47.8 192 0 239.8 0 298.7zM405.3 320l213.3 0c11.8 0 21.3-9.6 21.3-21.3C640 239.8 592.2 192 533.3 192l-42.7 0c-15.9 0-31 3.5-44.6 9.7c1.3 7.2 1.9 14.7 1.9 22.3c0 38.2-16.8 72.5-43.3 96c.2 0 .4 0 .7 0zM320 176a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm0 144a96 96 0 1 0 0-192 96 96 0 1 0 0 192zm-58.7 80l117.3 0c39.8 0 73.2 27.2 82.6 64l-282.6 0c9.5-36.8 42.9-64 82.6-64zm0-48C187.7 352 128 411.7 128 485.3c0 14.7 11.9 26.7 26.7 26.7l330.7 0c14.7 0 26.7-11.9 26.7-26.7C512 411.7 452.3 352 378.7 352l-117.3 0z"></path></svg>
+                            </div>
+                            <span class="item-label">Invite your team members</span>
+                            <div class="item-action">
+                                <svg aria-hidden="false" focusable="false" data-prefix="far" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right styles-module__chevronIcon_IPh9P" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z"></path></svg>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="wizard-checklist" id="agency-panel" role="tabpanel" tabindex="0" aria-labelledby="agency-tab" hidden>
+                        <a href="#" class="checklist-item">
+                            <div class="item-icon">
+                                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="money-bill-wave" class="svg-inline--fa fa-money-bill-wave styles-module__leftIcon_pRtWC" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M265.7 407.9c4.5-1.1 9-2.3 13.5-3.4c0 0 0 0 0 0c55.9-14.3 119.4-30.6 185.3-28.7c4.1-31.4 30.9-55.7 63.5-55.7l0-176c-35.3 0-63.9-28.6-64-63.9c-47-1.7-96.8 9.5-153.7 24c-4.5 1.1-9 2.3-13.5 3.5c0 0 0 0 0 0c-55.9 14.3-119.4 30.6-185.3 28.7C107.4 167.7 80.5 192 48 192l0 176c35.3 0 63.9 28.6 64 63.9c47 1.7 96.8-9.5 153.7-24zM0 421.5L0 113C0 88.8 25.4 72.7 48.4 79C128.2 101 208.1 80.6 288 60.3c86.9-22.1 173.8-44.3 260.7-12C565.8 54.6 576 72 576 90.5L576 399c0 24.3-25.4 40.3-48.3 34C447.8 411 367.9 431.4 288 451.7c-86.9 22.1-173.8 44.3-260.7 12C10.2 457.4 0 440 0 421.5zM288 352c-44.2 0-80-43-80-96s35.8-96 80-96s80 43 80 96s-35.8 96-80 96z"></path></svg>
+                            </div>
+                            <span class="item-label">Send money to contractors</span>
+                            <div class="item-action">
+                                <svg aria-hidden="false" focusable="false" data-prefix="far" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right styles-module__chevronIcon_IPh9P" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z"></path></svg>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="wizard-checklist" id="more-panel" role="tabpanel" tabindex="0" aria-labelledby="more-tab" hidden>
+                        <a href="#" class="checklist-item">
+                            <div class="item-icon">
+                                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="paper-plane" class="svg-inline--fa fa-paper-plane styles-module__leftIcon_pRtWC" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376l0 103.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z"></path></svg>
+                            </div>
+                            <span class="item-label">Make a payment</span>
+                            <div class="item-action">
+                                <svg aria-hidden="false" focusable="false" data-prefix="far" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right styles-module__chevronIcon_IPh9P" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z"></path></svg>
+                            </div>
+                        </a>
+                        <a href="#" class="checklist-item">
+                            <div class="item-icon">
+                                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="money-bill-wave" class="svg-inline--fa fa-money-bill-wave styles-module__leftIcon_pRtWC" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M265.7 407.9c4.5-1.1 9-2.3 13.5-3.4c0 0 0 0 0 0c55.9-14.3 119.4-30.6 185.3-28.7c4.1-31.4 30.9-55.7 63.5-55.7l0-176c-35.3 0-63.9-28.6-64-63.9c-47-1.7-96.8 9.5-153.7 24c-4.5 1.1-9 2.3-13.5 3.5c0 0 0 0 0 0c-55.9 14.3-119.4 30.6-185.3 28.7C107.4 167.7 80.5 192 48 192l0 176c35.3 0 63.9 28.6 64 63.9c47 1.7 96.8-9.5 153.7-24zM0 421.5L0 113C0 88.8 25.4 72.7 48.4 79C128.2 101 208.1 80.6 288 60.3c86.9-22.1 173.8-44.3 260.7-12C565.8 54.6 576 72 576 90.5L576 399c0 24.3-25.4 40.3-48.3 34C447.8 411 367.9 431.4 288 451.7c-86.9 22.1-173.8 44.3-260.7 12C10.2 457.4 0 440 0 421.5zM288 352c-44.2 0-80-43-80-96s35.8-96 80-96s80 43 80 96s-35.8 96-80 96z"></path></svg>
+                            </div>
+                            <span class="item-label">Send money to contractors</span>
+                            <div class="item-action">
+                                <svg aria-hidden="false" focusable="false" data-prefix="far" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right styles-module__chevronIcon_IPh9P" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z"></path></svg>
+                            </div>
+                        </a>
+                        <a href="#" class="checklist-item">
+                            <div class="item-icon">
+                                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="users" class="svg-inline--fa fa-users styles-module__leftIcon_pRtWC" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M144 160A80 80 0 1 0 144 0a80 80 0 1 0 0 160zm368 0A80 80 0 1 0 512 0a80 80 0 1 0 0 160zM0 298.7C0 310.4 9.6 320 21.3 320l213.3 0c.2 0 .4 0 .7 0c-26.6-23.5-43.3-57.8-43.3-96c0-7.6 .7-15 1.9-22.3c-13.6-6.3-28.7-9.7-44.6-9.7l-42.7 0C47.8 192 0 239.8 0 298.7zM405.3 320l213.3 0c11.8 0 21.3-9.6 21.3-21.3C640 239.8 592.2 192 533.3 192l-42.7 0c-15.9 0-31 3.5-44.6 9.7c1.3 7.2 1.9 14.7 1.9 22.3c0 38.2-16.8 72.5-43.3 96c.2 0 .4 0 .7 0zM320 176a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm0 144a96 96 0 1 0 0-192 96 96 0 1 0 0 192zm-58.7 80l117.3 0c39.8 0 73.2 27.2 82.6 64l-282.6 0c9.5-36.8 42.9-64 82.6-64zm0-48C187.7 352 128 411.7 128 485.3c0 14.7 11.9 26.7 26.7 26.7l330.7 0c14.7 0 26.7-11.9 26.7-26.7C512 411.7 452.3 352 378.7 352l-117.3 0z"></path></svg>
+                            </div>
+                            <span class="item-label">Invite your team members</span>
+                            <div class="item-action">
+                                <svg aria-hidden="false" focusable="false" data-prefix="far" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right styles-module__chevronIcon_IPh9P" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z"></path></svg>
+                            </div>
+                        </a>
+                    </div>
 
-                <div class="wizard-checklist">
-                    <!-- ... checklist items from previous example ... -->
-                    <a href="#" class="checklist-item">
-                        <div class="item-icon">
-                            <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="money-bill-wave" class="svg-inline--fa fa-money-bill-wave styles-module__leftIcon_pRtWC" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M265.7 407.9c4.5-1.1 9-2.3 13.5-3.4c0 0 0 0 0 0c55.9-14.3 119.4-30.6 185.3-28.7c4.1-31.4 30.9-55.7 63.5-55.7l0-176c-35.3 0-63.9-28.6-64-63.9c-47-1.7-96.8 9.5-153.7 24c-4.5 1.1-9 2.3-13.5 3.5c0 0 0 0 0 0c-55.9 14.3-119.4 30.6-185.3 28.7C107.4 167.7 80.5 192 48 192l0 176c35.3 0 63.9 28.6 64 63.9c47 1.7 96.8-9.5 153.7-24zM0 421.5L0 113C0 88.8 25.4 72.7 48.4 79C128.2 101 208.1 80.6 288 60.3c86.9-22.1 173.8-44.3 260.7-12C565.8 54.6 576 72 576 90.5L576 399c0 24.3-25.4 40.3-48.3 34C447.8 411 367.9 431.4 288 451.7c-86.9 22.1-173.8 44.3-260.7 12C10.2 457.4 0 440 0 421.5zM288 352c-44.2 0-80-43-80-96s35.8-96 80-96s80 43 80 96s-35.8 96-80 96z"></path></svg>
-                        </div>
-                        <span class="item-label">Send money to contractors</span>
-                        <div class="item-action">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    fill="#22C55E" />
-                            </svg>
-                        </div>
-                    </a>
-                    <a href="#" class="checklist-item">
-                        <div class="item-icon">
-                            <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="users" class="svg-inline--fa fa-users styles-module__leftIcon_pRtWC" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M144 160A80 80 0 1 0 144 0a80 80 0 1 0 0 160zm368 0A80 80 0 1 0 512 0a80 80 0 1 0 0 160zM0 298.7C0 310.4 9.6 320 21.3 320l213.3 0c.2 0 .4 0 .7 0c-26.6-23.5-43.3-57.8-43.3-96c0-7.6 .7-15 1.9-22.3c-13.6-6.3-28.7-9.7-44.6-9.7l-42.7 0C47.8 192 0 239.8 0 298.7zM405.3 320l213.3 0c11.8 0 21.3-9.6 21.3-21.3C640 239.8 592.2 192 533.3 192l-42.7 0c-15.9 0-31 3.5-44.6 9.7c1.3 7.2 1.9 14.7 1.9 22.3c0 38.2-16.8 72.5-43.3 96c.2 0 .4 0 .7 0zM320 176a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm0 144a96 96 0 1 0 0-192 96 96 0 1 0 0 192zm-58.7 80l117.3 0c39.8 0 73.2 27.2 82.6 64l-282.6 0c9.5-36.8 42.9-64 82.6-64zm0-48C187.7 352 128 411.7 128 485.3c0 14.7 11.9 26.7 26.7 26.7l330.7 0c14.7 0 26.7-11.9 26.7-26.7C512 411.7 452.3 352 378.7 352l-117.3 0z"></path></svg>
-                        </div>
-                        <span class="item-label">Invite your team members</span>
-                        <div class="item-action">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    fill="#22C55E" />
-                            </svg>
-                        </div>
-                    </a>
+
                 </div>
                 </div>
             </div>
