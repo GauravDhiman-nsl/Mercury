@@ -161,6 +161,7 @@ p, .meta, .secondary {
   --color-green:#188554 ;
   --link-text: #5266eb;
   --color-secondary-light: #535461;
+  --bg-dropdown:#fff;
   --error-border-color: #d0327538;
   --error-color: #d03275;
 }
