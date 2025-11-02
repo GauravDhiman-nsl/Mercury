@@ -67,6 +67,9 @@
 
     &:hover {
       opacity: 0.9;
+      svg{
+        color: var(--icon-active);
+      }
     }
     &--color-secondary {
       background-color: var(--button-secondary-bg);

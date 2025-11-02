@@ -7,50 +7,24 @@
 
 .chart-card {
 
-  .title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--title-margin-bottom, 16px);
-
-    span {
-      font-size: var(--title-font-size, 14px);
-      font-weight: var(--title-font-weight, 600);
-      color: var(--text-primary, #1f2937);
-    }
-
-    .shield-icon {
-      width: var(--icon-size, 16px);
-      height: var(--icon-size, 16px);
-      margin-left: var(--icon-margin-left, 6px);
-      color: var(--text-secondary, #6b7280);
-      vertical-align: middle;
-    }
-
-    .icons {
-      display: flex;
-      gap: var(--icons-gap, 8px);
-    }
-
-    .icon {
-      width: var(--icon-size, 16px);
-      height: var(--icon-size, 16px);
-      color: var(--text-secondary, #6b7280);
-    }
-  }
+  .balance-box-card{
+    @include flex-col;
 
   .balance {
-    font-size: var(--balance-font-size, 32px);
-    font-weight: var(--balance-font-weight, 700);
-    color: var(--text-primary, #1f2937);
-    margin: 0 0 var(--balance-margin-bottom, 4px) 0;
+    font-size:font-size(lg);
+    font-weight: font-weight(semibold);
+    color: var(--text-secondary);
+    margin-bottom:12px;
+  }
   }
 
+  .card-subtitlebox-row{
+    @include flex-row(space-between,row);
+    width: 100%;
   .subtitle {
-    font-size: var(--subtitle-font-size, 14px);
-    color: var(--text-secondary, #6b7280);
-    margin: 0 0 var(--subtitle-margin-bottom, 12px) 0;
-    display: block;
+    font-size: font-size(base);
+    color: var(--text-secondary);
+    display: inline-block;
 
     .dropdown {
       font-size: var(--dropdown-font-size, 12px);
@@ -68,21 +42,23 @@
     font-weight: var(--changes-font-weight, 500);
 
     .change-item {
-      display: flex;
-      align-items: center;
-      gap: var(--change-item-gap, 2px);
+    @include flex-center;
+      gap: 6px;
 
       .arrow {
-        font-size: var(--arrow-font-size, 12px);
-        line-height: 1;
+        font-size: font-size(base);
       }
 
-      &.positive {
-        color: var(--green, #10b981);
+      &.positive{
+        .arrow{
+        color: var(--color-green);
+        }
       }
 
-      &.negative {
-        color: var(--red, #ef4444);
+      &.negative{
+        .arrow{
+        color: var(--error-color);
+        }
       }
     }
   }
@@ -101,41 +77,38 @@
     }
 
     &.positive {
-      color: var(--green, #10b981);
+      .arrow{
+        color: var(--color-green);
+        }
     }
 
     &.negative {
-      color: var(--red, #ef4444);
+    .arrow{
+        color: var(--error-color);
+        }
     }
+  }
   }
 
   .chart-container {
     position: relative;
-    width: var(--chart-width, 400px);
-    height: var(--chart-height, 120px);
-    margin-bottom: var(--chart-margin-bottom, 8px);
-
+    @include flex-col(flex-start,center);
+    width: 100%;
+    height: 100%;
     #chart {
       width: 100%;
       height: 100%;
       display: block;
     }
-  }
+    .x-axis {
+      @include flex-row(center,center);
 
-  .x-axis {
-    position: absolute;
-    bottom: calc(-1 * var(--x-axis-height, 24px));
-    left: 0;
-    width: var(--chart-width, 400px);
-    height: var(--x-axis-height, 20px);
 
     span {
-      position: absolute;
-      bottom: 0;
-      transform: translateX(-50%);
-      font-size: var(--x-axis-font-size, 12px);
-      color: var(--text-secondary, #6b7280);
-      white-space: nowrap;
+      @include flex-center;
     }
   }
+  }
+
+  
 }

@@ -25,14 +25,24 @@
                 </p>
             </div>
             <div class="site-header__right">
-                <button type="button" class="site-header__button site-header__button--color-secondary">
-                    Viewing as Admin
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true">
-                        <path d="M4 6L8 10L12 6" stroke="white" stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </button>
+                <div class="dropdown-box">
+                    <button type="button"
+                        class="site-header__button site-header__button--color-secondary drop-toggle-btn">
+                        Viewing as Admin
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-box">
+                        <ul>
+                            <li><a href="#">
+                                    <span>View As Employee</span>
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
                 <a href="#" class="site-header__button site-header__button--color-primary">Open Account</a>
             </div>
         </div>
@@ -66,7 +76,13 @@
                             <a href="#" class="referrals">
                                 <span>Referrals</span>
                                 <span class="badge">
-                                    <svg width="11.25" height="11.25" aria-hidden="true" focusable="false" data-prefix="far" data-icon="gift"  role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M231.9 44.4C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88c0 14.4 3.5 28 9.6 40L48 128c-26.5 0-48 21.5-48 48l0 64c0 20.9 13.4 38.7 32 45.3l0 2.7 0 160c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-160 0-2.7c18.6-6.6 32-24.4 32-45.3l0-64c0-26.5-21.5-48-48-48l-25.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41zM464 176l0 64-32 0-144 0 0-64 72 0 104 0zm-240 0l0 64L80 240l-32 0 0-64 104 0 72 0zm0 112l0 176L96 464c-8.8 0-16-7.2-16-16l0-160 144 0zm64 176l0-176 144 0 0 160c0 8.8-7.2 16-16 16l-128 0zm72-336l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40s-17.9 40-40 40zm-136 0l-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8L225.3 128l-1.3 0z"></path></svg>
+                                    <svg width="11.25" height="11.25" aria-hidden="true" focusable="false"
+                                        data-prefix="far" data-icon="gift" role="img" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 512 512">
+                                        <path fill="currentColor"
+                                            d="M231.9 44.4C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88c0 14.4 3.5 28 9.6 40L48 128c-26.5 0-48 21.5-48 48l0 64c0 20.9 13.4 38.7 32 45.3l0 2.7 0 160c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-160 0-2.7c18.6-6.6 32-24.4 32-45.3l0-64c0-26.5-21.5-48-48-48l-25.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41zM464 176l0 64-32 0-144 0 0-64 72 0 104 0zm-240 0l0 64L80 240l-32 0 0-64 104 0 72 0zm0 112l0 176L96 464c-8.8 0-16-7.2-16-16l0-160 144 0zm64 176l0-176 144 0 0 160c0 8.8-7.2 16-16 16l-128 0zm72-336l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40s-17.9 40-40 40zm-136 0l-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8L225.3 128l-1.3 0z">
+                                        </path>
+                                    </svg>
                                     Earn $250
                                 </span>
                             </a>
@@ -82,16 +98,29 @@
                     <ul class="sidebar__menu-list accounts-list">
                         <li>
                             <a href="#">
-                                <svg class="icon-grid" width="24" height="24" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="grid-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 80c0-26.5-21.5-48-48-48L80 32C53.5 32 32 53.5 32 80l0 96c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-96zm0 256c0-26.5-21.5-48-48-48l-96 0c-26.5 0-48 21.5-48 48l0 96c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-96zM288 80l0 96c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-96c0-26.5-21.5-48-48-48l-96 0c-26.5 0-48 21.5-48 48zM480 336c0-26.5-21.5-48-48-48l-96 0c-26.5 0-48 21.5-48 48l0 96c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-96z"></path></svg>
+                                <svg class="icon-grid" width="24" height="24" aria-hidden="true" focusable="false"
+                                    data-prefix="fas" data-icon="grid-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M224 80c0-26.5-21.5-48-48-48L80 32C53.5 32 32 53.5 32 80l0 96c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-96zm0 256c0-26.5-21.5-48-48-48l-96 0c-26.5 0-48 21.5-48 48l0 96c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-96zM288 80l0 96c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-96c0-26.5-21.5-48-48-48l-96 0c-26.5 0-48 21.5-48 48zM480 336c0-26.5-21.5-48-48-48l-96 0c-26.5 0-48 21.5-48 48l0 96c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-96z">
+                                    </path>
+                                </svg>
 
                                 View All Accounts
                             </a>
                         </li>
                         <li>
                             <a href="#" class="active">
-                                <img src="./assets/images/mercury-demo-dark.png" alt="Mercury Demo icon" class="account-icon">
+                                <img src="./assets/images/mercury-demo-dark.png" alt="Mercury Demo icon"
+                                    class="account-icon">
                                 Mercury Demo
-                                <svg class="icon-check" width="16" height="16" aria-hidden="true" focusable="false" data-prefix="far" data-icon="check"  role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"></path></svg>
+                                <svg class="icon-check" width="16" height="16" aria-hidden="true" focusable="false"
+                                    data-prefix="far" data-icon="check" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512">
+                                    <path fill="currentColor"
+                                        d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z">
+                                    </path>
+                                </svg>
                             </a>
                         </li>
                         <li>
@@ -121,8 +150,8 @@
                         <li><a href="#">Apply for a new account</a></li>
                         <li><a href="#">Link an existing account</a></li>
                     </ul>
-                     <hr class="sidebar__separator">
-                     <ul class="sidebar__menu-list">
+                    <hr class="sidebar__separator">
+                    <ul class="sidebar__menu-list">
                         <li><a href="#">Log Out</a></li>
                     </ul>
                 </div>
@@ -385,21 +414,80 @@
                 <!-- Topbar Actions -->
                 <div class="topbar-actions">
                     <div class="dropdown-box">
-                    <button class="topbar-actions__button drop-toggle-btn">
-                        <span>Move Money</span>
-                        <svg width="13" height="13" aria-hidden="true" focusable="false" data-prefix="far"
-                            data-icon="chevron-down" class="" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512">
-                            <path fill="currentColor"
-                                d="M239 401c9.4 9.4 24.6 9.4 33.9 0L465 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-175 175L81 175c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9L239 401z">
-                            </path>
-                        </svg>
-                    </button>
-                     <div class="dropdown-menu dropdown-menu-box">
-                        jhjhjhjh
+                        <button class="topbar-actions__button drop-toggle-btn">
+                            <span>Move Money</span>
+                            <svg class="icon-cheveron" width="13" height="13" aria-hidden="true" focusable="false"
+                                data-prefix="far" data-icon="chevron-down" class="" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                    d="M239 401c9.4 9.4 24.6 9.4 33.9 0L465 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-175 175L81 175c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9L239 401z">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-box">
+                            <ul>
+                                <li><a href="#">
+                                        <svg class="dropdown-icons" aria-hidden="true" focusable="false"
+                                            data-icon="paper-plane" role="img" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 512 512" color="var(--ds-icon-tertiary)" width="11">
+                                            <path fill="currentColor"
+                                                d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376l0 103.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z">
+                                            </path>
+                                        </svg><span>Send</span>
+                                    </a></li>
+                                <li><a href="#">
+                                        <svg class="dropdown-icons" aria-hidden="true" focusable="false"
+                                            data-icon="arrows-left-right" role="img" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 512 512" width="11">
+                                            <path fill="currentColor"
+                                                d="M505 273c9.4-9.4 9.4-24.6 0-33.9l-96-96c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l55 55L81.9 232l55-55c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L7 239c-9.4 9.4-9.4 24.6 0 33.9l96 96c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-55-55 348.1 0-55 55c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l96-96z">
+                                            </path>
+                                        </svg><span>Transfer</span>
+                                    </a></li>
+                                <li><a href="#">
+                                        <svg class="dropdown-icons" aria-hidden="true" focusable="false"
+                                            data-prefix="far" data-icon="plus" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="11">
+                                            <path fill="currentColor"
+                                                d="M248 72c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 160L40 232c-13.3 0-24 10.7-24 24s10.7 24 24 24l160 0 0 160c0 13.3 10.7 24 24 24s24-10.7 24-24l0-160 160 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-160 0 0-160z">
+                                            </path>
+                                        </svg><span>Deposit</span>
+                                    </a></li>
+                                <li><a href="#">
+                                        <svg class="dropdown-icons" aria-hidden="true" focusable="false"
+                                            data-prefix="far" data-icon="arrow-left-to-line" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="11">
+                                            <path fill="currentColor"
+                                                d="M0 424c0 13.3 10.7 24 24 24s24-10.7 24-24L48 88c0-13.3-10.7-24-24-24S0 74.7 0 88L0 424zM135.6 238.5c-4.8 4.5-7.6 10.9-7.6 17.5s2.7 12.9 7.6 17.5l136 128c9.7 9.1 24.8 8.6 33.9-1s8.6-24.8-1-33.9L212.5 280l83.5 0 128 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-128 0-83.5 0 91.9-86.5c9.7-9.1 10.1-24.3 1-33.9s-24.3-10.1-33.9-1l-136 128z">
+                                            </path>
+                                        </svg><span>Request</span>
+                                    </a></li>
+                            </ul>
+                            <hr class="sidebar__separator">
+                            <ul>
+                                <li><a href="#">
+                                        <svg class="dropdown-icons" aria-hidden="true" focusable="false"
+                                            data-prefix="far" data-icon="arrow-up-from-line" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="11">
+                                            <path fill="currentColor"
+                                                d="M209.5 39.6C204.9 34.7 198.6 32 192 32s-12.9 2.7-17.5 7.6l-128 136c-9.1 9.7-8.6 24.8 1 33.9s24.8 8.6 33.9-1L168 116.5l0 83.5 0 128c0 13.3 10.7 24 24 24s24-10.7 24-24l0-128 0-83.5 86.5 91.9c9.1 9.7 24.3 10.1 33.9 1s10.1-24.3 1-33.9l-128-136zM24 432c-13.3 0-24 10.7-24 24s10.7 24 24 24l336 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L24 432z">
+                                            </path>
+                                        </svg><span>Upload Bill</span>
+                                    </a></li>
+                                <li><a href="#">
+                                        <svg class="dropdown-icons" aria-hidden="true" focusable="false"
+                                            data-prefix="far" data-icon="file-lines" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="11">
+                                            <path fill="currentColor"
+                                                d="M64 464c-8.8 0-16-7.2-16-16L48 64c0-8.8 7.2-16 16-16l160 0 0 80c0 17.7 14.3 32 32 32l80 0 0 288c0 8.8-7.2 16-16 16L64 464zM64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-293.5c0-17-6.7-33.3-18.7-45.3L274.7 18.7C262.7 6.7 246.5 0 229.5 0L64 0zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0z">
+                                            </path>
+                                        </svg><span>Create Invoice</span>
+                                    </a></li>
+
+                            </ul>
+                        </div>
                     </div>
-                    </div>
-                   
+
                     <button class="topbar-actions__icon-button" aria-label="show values">
                         <svg width="16.25" height="13" aria-hidden="true" focusable="false" data-prefix="far"
                             data-icon="eye-slash" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
@@ -416,8 +504,92 @@
                             </path>
                         </svg>
                     </button>
-                    <div class="topbar-actions__avatar">
-                        <img src="./assets/images/user-avatar.jpg" alt="User Avatar">
+                    <div class="topbar-actions__avatar dropdown-box">
+                        <img src="./assets/images/user-avatar.jpg" alt="User Avatar" class="drop-toggle-btn"
+                            role="button" aria-label="profile dropdown">
+                        <div class="dropdown-menu dropdown-menu-box">
+                            <ul>
+                                <li class="p-12">
+                                    <span class="user-info-tag">Admin</span>
+                                </li>
+                                <li class="user-info">
+                                    <span>Jane Black</span>
+                                    <small>jane@demo.mercury.com</small>
+                                </li>
+
+                            </ul>
+                            <hr>
+                            <ul>
+                                <li><a href="#">
+                                        <span>Profile</span>
+                                    </a></li>
+                                <li><a href="#">
+                                        <span>Notifications</span>
+                                    </a></li>
+                                <li><a href="#">
+                                        <span>Security</span>
+                                    </a></li>
+                                <li><a href="#">
+                                        <span>Privacy</span>
+                                    </a></li>
+                                <li><a href="#">
+                                        <span>Perks</span>
+                                    </a></li>
+                            </ul>
+                            <hr>
+                            <ul>
+                                <li class="sub-drop-toggle"><a class="sub-menu-tgl-btn" href="#" role="button"
+                                        aria-label="theme switch">
+                                        <span class="btn-text-wrapper">
+                                            <span>Appearance</span>
+                                            <small>System default</small>
+                                        </span>
+                                        <svg width="10" height="16" class="dropdown-icons" aria-hidden="true"
+                                            focusable="false" data-prefix="far" data-icon="chevron-right"
+                                            class="svg-inline--fa fa-chevron-right " role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                            <path fill="currentColor"
+                                                d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z">
+                                            </path>
+                                        </svg>
+                                    </a>
+                                    <ul class="sub-dropdownmenu">
+                                        <div class="sub-menu-wrapper">
+                                            <li><a class="sub-menu-tgl-btn" href="#" role="button"
+                                                    aria-label="theme switch">
+                                                    <svg aria-hidden="true" focusable="false" data-prefix="far"
+                                                        data-icon="check" class="dropdown-icons" role="img"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                                                        color="var(--ds-icon-tertiary)" width="11">
+                                                        <path fill="currentColor"
+                                                            d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z">
+                                                        </path>
+                                                    </svg>
+                                                    <span class="btn-text-wrapper">
+                                                        <span>System default</span>
+                                                        <small class="nowrap">We’ll match your system
+                                                            preferences</small>
+                                                    </span>
+
+                                                </a></li>
+                                            <li><a href="#">
+                                                    <span>Dark mode</span>
+                                                </a></li>
+                                            <li><a href="#">
+                                                    <span>Light mode</span>
+                                                </a></li>
+                                        </div>
+                                    </ul>
+                                </li>
+                                <li><a href="#">
+                                        <span>Log out</span>
+                                    </a></li>
+
+
+                            </ul>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -489,57 +661,116 @@
                             <span>Create Invoice</span>
                         </a>
                     </div>
-                    <button class="nav-pill-option">
-                        <svg width="2.75" height="11" aria-hidden="true" focusable="false" data-prefix="far"
-                            data-icon="ellipsis-vertical" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 128 512" style="font-size: 11px; line-height: 20px;">
-                            <path fill="currentColor"
-                                d="M64 368a48 48 0 1 0 0 96 48 48 0 1 0 0-96zm0-160a48 48 0 1 0 0 96 48 48 0 1 0 0-96zM112 96A48 48 0 1 0 16 96a48 48 0 1 0 96 0z">
-                            </path>
-                        </svg>
-                        <span>Customize</span>
-                    </button>
+                    <div class="dropdown-box">
+                        <button class="nav-pill-option drop-toggle-btn">
+                            <svg width="2.75" height="11" aria-hidden="true" focusable="false" data-prefix="far"
+                                data-icon="ellipsis-vertical" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 128 512" style="font-size: 11px; line-height: 20px;">
+                                <path fill="currentColor"
+                                    d="M64 368a48 48 0 1 0 0 96 48 48 0 1 0 0-96zm0-160a48 48 0 1 0 0 96 48 48 0 1 0 0-96zM112 96A48 48 0 1 0 16 96a48 48 0 1 0 96 0z">
+                                </path>
+                            </svg>
+                            <span>Customize</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-box">
+                            <ul>
+                                <li><a href="#">
+                                        <svg class="dropdown-icons" width="11" height="11" aria-hidden="true"
+                                            focusable="false" data-icon="eye-slash" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"
+                                            color="var(--ds-icon-tertiary)" width="11">
+                                            <path fill="currentColor"
+                                                d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zm151 118.3C226 97.7 269.5 80 320 80c65.2 0 118.8 29.6 159.9 67.7C518.4 183.5 545 226 558.6 256c-12.6 28-36.6 66.8-70.9 100.9l-53.8-42.2c9.1-17.6 14.2-37.5 14.2-58.7c0-70.7-57.3-128-128-128c-32.2 0-61.7 11.9-84.2 31.5l-46.1-36.1zM394.9 284.2l-81.5-63.9c4.2-8.5 6.6-18.2 6.6-28.3c0-5.5-.7-10.9-2-16c.7 0 1.3 0 2 0c44.2 0 80 35.8 80 80c0 9.9-1.8 19.4-5.1 28.2zm9.4 130.3C378.8 425.4 350.7 432 320 432c-65.2 0-118.8-29.6-159.9-67.7C121.6 328.5 95 286 81.4 256c8.3-18.4 21.5-41.5 39.4-64.8L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5l-41.9-33zM192 256c0 70.7 57.3 128 128 128c13.3 0 26.1-2 38.2-5.8L302 334c-23.5-5.4-43.1-21.2-53.7-42.3l-56.1-44.2c-.2 2.8-.3 5.6-.3 8.5z">
+                                            </path>
+                                        </svg><span>Hide Credit Card</span>
+                                    </a></li>
+                                <li><a href="#">
+                                        <svg class="dropdown-icons" width="11" height="11" aria-hidden="true"
+                                            focusable="false" data-icon="eye-slash" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"
+                                            color="var(--ds-icon-tertiary)" width="11">
+                                            <path fill="currentColor"
+                                                d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zm151 118.3C226 97.7 269.5 80 320 80c65.2 0 118.8 29.6 159.9 67.7C518.4 183.5 545 226 558.6 256c-12.6 28-36.6 66.8-70.9 100.9l-53.8-42.2c9.1-17.6 14.2-37.5 14.2-58.7c0-70.7-57.3-128-128-128c-32.2 0-61.7 11.9-84.2 31.5l-46.1-36.1zM394.9 284.2l-81.5-63.9c4.2-8.5 6.6-18.2 6.6-28.3c0-5.5-.7-10.9-2-16c.7 0 1.3 0 2 0c44.2 0 80 35.8 80 80c0 9.9-1.8 19.4-5.1 28.2zm9.4 130.3C378.8 425.4 350.7 432 320 432c-65.2 0-118.8-29.6-159.9-67.7C121.6 328.5 95 286 81.4 256c8.3-18.4 21.5-41.5 39.4-64.8L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5l-41.9-33zM192 256c0 70.7 57.3 128 128 128c13.3 0 26.1-2 38.2-5.8L302 334c-23.5-5.4-43.1-21.2-53.7-42.3l-56.1-44.2c-.2 2.8-.3 5.6-.3 8.5z">
+                                            </path>
+                                        </svg><span>Hide Bill Pay</span>
+                                    </a></li>
+                                <li><a href="#">
+                                        <svg class="dropdown-icons" width="11" height="11" aria-hidden="true"
+                                            focusable="false" data-icon="eye-slash" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"
+                                            color="var(--ds-icon-tertiary)" width="11">
+                                            <path fill="currentColor"
+                                                d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zm151 118.3C226 97.7 269.5 80 320 80c65.2 0 118.8 29.6 159.9 67.7C518.4 183.5 545 226 558.6 256c-12.6 28-36.6 66.8-70.9 100.9l-53.8-42.2c9.1-17.6 14.2-37.5 14.2-58.7c0-70.7-57.3-128-128-128c-32.2 0-61.7 11.9-84.2 31.5l-46.1-36.1zM394.9 284.2l-81.5-63.9c4.2-8.5 6.6-18.2 6.6-28.3c0-5.5-.7-10.9-2-16c.7 0 1.3 0 2 0c44.2 0 80 35.8 80 80c0 9.9-1.8 19.4-5.1 28.2zm9.4 130.3C378.8 425.4 350.7 432 320 432c-65.2 0-118.8-29.6-159.9-67.7C121.6 328.5 95 286 81.4 256c8.3-18.4 21.5-41.5 39.4-64.8L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5l-41.9-33zM192 256c0 70.7 57.3 128 128 128c13.3 0 26.1-2 38.2-5.8L302 334c-23.5-5.4-43.1-21.2-53.7-42.3l-56.1-44.2c-.2 2.8-.3 5.6-.3 8.5z">
+                                            </path>
+                                        </svg><span>Hide Invoicing</span>
+                                    </a></li>
+                                <li><a href="#">
+                                        <svg class="dropdown-icons" width="13" height="11" aria-hidden="true"
+                                            focusable="false" data-icon="message-lines" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                            color="var(--ds-icon-tertiary)" width="11">
+                                            <path fill="currentColor"
+                                                d="M208 416c0-26.5-21.5-48-48-48l-96 0c-8.8 0-16-7.2-16-16L48 64c0-8.8 7.2-16 16-16l384 0c8.8 0 16 7.2 16 16l0 288c0 8.8-7.2 16-16 16l-138.7 0c-10.4 0-20.5 3.4-28.8 9.6L208 432l0-16zm-.2 76.2l.2-.2 101.3-76L448 416c35.3 0 64-28.7 64-64l0-288c0-35.3-28.7-64-64-64L64 0C28.7 0 0 28.7 0 64L0 352c0 35.3 28.7 64 64 64l48 0 48 0 0 48 0 4 0 .3 0 6.4 0 21.3c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L202.7 496l5.1-3.8zM152 144c-13.3 0-24 10.7-24 24s10.7 24 24 24l208 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-208 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-112 0z">
+                                            </path>
+                                        </svg><span>Request Feature</span>
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="charts-section">
                     <div class="charts-wrapper">
                         <div id="mercury-balance-chart" class="card-box chart-card">
-                            <!-- Static non-graph elements -->
-                            <div class="title">
-                                <span>Mercury balance <svg class="shield-icon" viewBox="0 0 20 20" fill="currentColor">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg></span>
-                                <div class="icons">
-                                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
-                                        <path
-                                            d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
-                                    </svg>
-                                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                            clip-rule="evenodd" />
-                                    </svg>
+                            <div class="card-body">
+                                <div class="card-title-box mb-0">
+                                    <div class="card-title-text">
+                                        <h1>Mercury balance</h1><a><svg width="13" height="13" aria-hidden="true"
+                                                focusable="false" data-icon="shield-check" role="img"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                                color="primary">
+                                                <path fill="currentColor"
+                                                    d="M269.4 2.9C265.2 1 260.7 0 256 0s-9.2 1-13.4 2.9L54.3 82.8c-22 9.3-38.4 31-38.3 57.2c.5 99.2 41.3 280.7 213.6 363.2c16.7 8 36.1 8 52.8 0C454.7 420.7 495.5 239.2 496 140c.1-26.2-16.3-47.9-38.3-57.2L269.4 2.9zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
+                                                </path>
+                                            </svg></a>
+
+                                    </div>
+                                    <div class="card-head-actions">
+                                        <div class="toggle-switch" role="switch" aria-checked="false"
+                                            aria-label="Switch view" tabindex="0" id="iconToggle"
+                                            data-left-svg='<svg aria-hidden="true" focusable="false" width="16.66" height="16.66" data-icon="chart-line"  role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M48 56c0-13.3-10.7-24-24-24S0 42.7 0 56L0 408c0 39.8 32.2 72 72 72l416 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L72 432c-13.3 0-24-10.7-24-24L48 56zM473 169c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-119 119-79-79c-4.5-4.5-10.6-7-17-7s-12.5 2.5-17 7l-96 96c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l79-79 79 79c9.4 9.4 24.6 9.4 33.9 0L473 169z"></path></svg>'
+                                            data-right-svg='<svg width="16.66" height="16.66" aria-hidden="true" focusable="false"  data-icon="table"  role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M48 264l0-104 184 0 0 104L48 264zm0 48l184 0 0 120L64 432c-8.8 0-16-7.2-16-16l0-104zM280 432l0-120 184 0 0 104c0 8.8-7.2 16-16 16l-168 0zM464 264l-184 0 0-104 184 0 0 104zM64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32z"></path></svg>'>
+                                            <div class="toggle-slider">
+                                                <span class="icon left-icon" aria-hidden="true"></span>
+                                                <span class="icon right-icon" aria-hidden="true"></span>
+                                                <div class="toggle-knob"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="balance">$<span id="mercury-balance-balance">5,097,429.63</span></div>
-                            <div class="subtitle">
-                                <span id="mercury-balance-period-text">Last 30 days <span
-                                        class="dropdown">▼</span></span>
-                                <span id="mercury-balance-date-text" style="display: none;">October 10, 2025</span>
-                            </div>
-                            <div id="mercury-balance-default-changes" class="default-changes">
-                                <span id="mercury-balance-total-change-span" class="change-item positive">
-                                    <span class="arrow">▲</span>
-                                    <span id="mercury-balance-total-val">$1.7M</span>
-                                </span>
-                                <span id="mercury-balance-daily-default-span" class="change-item negative">
-                                    <span class="arrow">▼</span>
-                                    <span id="mercury-balance-daily-default-val">-$4k</span>
-                                </span>
-                            </div>
-                            <div id="mercury-balance-hover-change" class="change" style="display: flex;">
-                                <span id="mercury-balance-hover-arrow" class="arrow">▼</span>
-                                <span id="mercury-balance-hover-delta" class="delta">-$102,076.3</span>
+                                <div class="balance-box-card">
+                                <div class="balance">$<span id="mercury-balance-balance">5,097,429.63</span></div>
+                                </div>
+                                <div class="card-subtitlebox-row">
+                                <div class="subtitle">
+                                    <span id="mercury-balance-period-text">Last 30 days <span
+                                            class="dropdown">&#9660;</span></span>
+                                    <span id="mercury-balance-date-text" style="display: none;">October 10, 2025</span>
+                                </div>
+                                <div id="mercury-balance-default-changes" class="default-changes">
+                                    <span id="mercury-balance-total-change-span" class="change-item positive">
+                                        <span class="arrow">&#9650;</span>
+                                        <span id="mercury-balance-total-val">$1.7M</span>
+                                    </span>
+                                    <span id="mercury-balance-daily-default-span" class="change-item negative">
+                                        <span class="arrow">&#9660;</span>
+                                        <span id="mercury-balance-daily-default-val">-$4k</span>
+                                    </span>
+                                </div>
+                                <div id="mercury-balance-hover-change" class="change" style="display: flex;">
+                                    <span id="mercury-balance-hover-arrow" class="arrow"> &#9660;</span>
+                                    <span id="mercury-balance-hover-delta" class="delta">-$102,076.3</span>
+                                </div>
+                                </div>
                             </div>
                             <!-- Graph section - JS injects here -->
                             <div class="chart-container">
@@ -1174,7 +1405,14 @@
                     <header class="header">
                         <h1 class="title">Transactions</h1>
                         <a href="#" class="view-all-link">View all<span class="icon">
-                                <svg width="7" height="10" aria-hidden="true" focusable="false" data-prefix="far" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right styles-module__iconRight_lgFFt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z"></path></svg>
+                                <svg width="7" height="10" aria-hidden="true" focusable="false" data-prefix="far"
+                                    data-icon="chevron-right"
+                                    class="svg-inline--fa fa-chevron-right styles-module__iconRight_lgFFt" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                        d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z">
+                                    </path>
+                                </svg>
                             </span>
                         </a>
                     </header>
@@ -1209,8 +1447,8 @@
                             <table class="transactions-table">
                                 <thead>
                                     <tr>
-                                        <th><button class="sort-button">Date <svg width="8" height="12" viewBox="0 0 8 12"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <th><button class="sort-button">Date <svg width="8" height="12"
+                                                    viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M4 0L0 4H8L4 0Z" fill="black" />
                                                     <path d="M4 12L8 8H0L4 12Z" fill="#C4C4C4" />
                                                 </svg></button></th>
@@ -1315,12 +1553,12 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div id="my-transactions-panel" role="tabpanel" tabindex="0" aria-labelledby="my-transactions-tab"
-                            hidden>
+                        <div id="my-transactions-panel" role="tabpanel" tabindex="0"
+                            aria-labelledby="my-transactions-tab" hidden>
                             <p>My transactions content goes here.</p>
                         </div>
-                        <div id="monthly-money-in-panel" role="tabpanel" tabindex="0" aria-labelledby="monthly-money-in-tab"
-                            hidden>
+                        <div id="monthly-money-in-panel" role="tabpanel" tabindex="0"
+                            aria-labelledby="monthly-money-in-tab" hidden>
                             <p>Monthly money in content goes here.</p>
                         </div>
                         <div id="monthly-money-out-panel" role="tabpanel" tabindex="0"

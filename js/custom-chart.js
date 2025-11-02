@@ -96,7 +96,7 @@ class MercuryChart {
           <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
         </linearGradient>
       </defs>
-      <rect width="100%" height="100%" fill="#f9fafb" />
+      <rect width="100%" height="100%" fill="none" />
       <path class="area" id="mercury-balance-area" d="" fill="url(#mercury-balance-areaGradient)" />
       <path id="mercury-balance-line" d="" stroke="#6366f1" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
       <line id="mercury-balance-vline" x1="0" y1="120" x2="0" y2="120" stroke="#8b5cf6" stroke-width="1" visibility="hidden" />

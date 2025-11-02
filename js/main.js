@@ -4,48 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+/**
+ * Accessible, customizable icon toggle switch
+ * -------------------------------------------------
+ * - Uses data-left-svg / data-right-svg OR data-left-icon / data-right-icon
+ * - Handles click + Space/Enter
+ * - Updates aria-checked
+ * - Fires a custom 'togglechange' event
+ */
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('iconToggle');
-  const leftIconEl  = toggle.querySelector('.left-icon');
-  const rightIconEl = toggle.querySelector('.right-icon');
 
-  const leftSVG  = toggle.dataset.leftSvg;
-  const rightSVG = toggle.dataset.rightSvg;
-
-  if (leftSVG)  leftIconEl.innerHTML  = leftSVG;
-  else if (toggle.dataset.leftIcon)  leftIconEl.classList.add(toggle.dataset.leftIcon);
-
-  if (rightSVG) rightIconEl.innerHTML = rightSVG;
-  else if (toggle.dataset.rightIcon) rightIconEl.classList.add(toggle.dataset.rightIcon);
-  const setChecked = (checked) => {
-    toggle.setAttribute('aria-checked', checked);
-    toggle.dispatchEvent(new CustomEvent('togglechange', {
-      detail: { checked }
-    }));
-  };
-
-  toggle.addEventListener('click', () => {
-    const currently = toggle.getAttribute('aria-checked') === 'true';
-    setChecked(!currently);
-  });
-
-  toggle.addEventListener('keydown', (e) => {
-    if (e.key === ' ' || e.key === 'Enter') {
-      e.preventDefault(); 
-      const currently = toggle.getAttribute('aria-checked') === 'true';
-      setChecked(!currently);
-    }
-  });
-
-  if (toggle.hasAttribute('data-active')) {
-    setChecked(true);
-  }
-});
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.getElementById('iconToggle');
+  // ------------------------------------------------------------------
+  // 1. Insert icons (SVG data-attribute has priority)
+  // ------------------------------------------------------------------
   const leftIconEl  = toggle.querySelector('.left-icon');
   const rightIconEl = toggle.querySelector('.right-icon');
 
@@ -58,6 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (rightSVG) rightIconEl.innerHTML = rightSVG;
   else if (toggle.dataset.rightIcon) rightIconEl.classList.add(toggle.dataset.rightIcon);
 
+  // ------------------------------------------------------------------
+  // 2. Helper: set checked state
+  // ------------------------------------------------------------------
   const setChecked = (checked) => {
     toggle.setAttribute('aria-checked', checked);
     // custom event for external listeners
@@ -66,23 +41,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   };
 
+  // ------------------------------------------------------------------
+  // 3. Interaction: click
+  // ------------------------------------------------------------------
   toggle.addEventListener('click', () => {
     const currently = toggle.getAttribute('aria-checked') === 'true';
     setChecked(!currently);
   });
 
+  // ------------------------------------------------------------------
+  // 4. Interaction: keyboard (Space / Enter)
+  // ------------------------------------------------------------------
   toggle.addEventListener('keydown', (e) => {
     if (e.key === ' ' || e.key === 'Enter') {
-      e.preventDefault();              
+      e.preventDefault();               // prevent page scroll
       const currently = toggle.getAttribute('aria-checked') === 'true';
       setChecked(!currently);
     }
   });
 
+  // ------------------------------------------------------------------
+  // 5. Optional: initialise from data-active attribute
+  // ------------------------------------------------------------------
   if (toggle.hasAttribute('data-active')) {
     setChecked(true);
   }
 });
+
+
+
+
 
 
 /**

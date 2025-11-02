@@ -110,7 +110,7 @@
         // General list styling
         .sidebar__menu-list {
             list-style: none;
-            padding: 0;
+            padding: 4px;
             margin: 0;
 
             li a {
@@ -185,6 +185,12 @@
             .icon-check {
                 margin-left: auto;
                 color: var(--icon-active);
+                svg {
+                    color: var(--icon-active) !important;
+                    path{
+                    color: var(--icon-active) !important;
+                    }
+                }
                 
             }
 

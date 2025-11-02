@@ -17,9 +17,28 @@
             @include flex-row(space-between,flex-start);
             margin-bottom: 12px;
             .card-title-text{
+                @include flex-row;
+                gap: 12px;
                 h1{
                     font-size: font-size(base);
                     font-weight: font-weight(regular);
+                    white-space: nowrap;
+                    width: max-content;
+                }
+                a{
+                    width: 24px;
+                    height: 24px;
+                    @include flex-center;
+                    flex-shrink: 0;
+                    border: 1px solid var(--border);
+                    background: var(--bg-secondary);
+                    color: var(--icon-active);
+                    text-decoration: none;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    &:hover{
+                        text-decoration: none;
+                    }
                 }
             }
             .card-text-green{
@@ -241,3 +260,5 @@
             }
         }   
     }
+
+    
