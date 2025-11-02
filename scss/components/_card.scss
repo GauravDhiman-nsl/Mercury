@@ -204,3 +204,40 @@
         }
     }
 }
+.card-footer-grid-box{
+        @include flex-center(flex-start,center);
+        border-top:1px solid var(--border);
+        padding:24px;
+        .footer-content{
+            @include flex-row(space-between,center);
+            width: 100%;
+            .content-warper{
+                @include flex-row(space-between,center);
+                width: 100%;
+                .text-wrapper{
+                    @include flex-col;
+                    .text-head{
+                    @include flex-row(flex-start,center,4px);
+                    font-size:13px;
+                    font-weight: font-weight(regular);
+                    color:var(--color-secondary);
+                    }
+                    .text-body{
+                    font-size:font-size(base);
+                    font-weight: font-weight(regular);
+                    color:var(--color-secondary);
+                    a{  
+                          font-size:font-size(base);
+                    font-weight: font-weight(regular);
+                    color:var(--color-secondary);
+                        text-decoration: none;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                    }
+                   
+                    }
+                }
+            }
+        }   
+    }

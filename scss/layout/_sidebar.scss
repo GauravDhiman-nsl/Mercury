@@ -21,7 +21,7 @@
         color: var(--sidebar-text);
         border-bottom: var(--border) 1px solid;
         min-height: 64px;
-        
+
 
         &__brand {
             @include flex-row(flex-start, center, 0.50rem);
@@ -31,7 +31,8 @@
             background: none;
             cursor: pointer;
             padding: 4px 12px 4px 4px;
-            span{
+
+            span {
                 color: var(--color-secondary);
                 font-size: font-size(sm);
                 font-weight: font-weight(regular);
@@ -78,39 +79,160 @@
         padding: 8px 12px;
         margin-top: 1rem;
     }
+
+    &__menu {
+        top: 50px;
+        left: 10px;
+        width: 100%;
+        padding: 0;
+        max-height: 85vh;
+        overflow-y: auto;
+        min-width: 280px;
+        svg{
+            margin-left: unset;
+        }
+
+        // Custom Scrollbar
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            border-radius: 10px;
+            border: 3px solid #ffffff;
+        }
+
+        // General list styling
+        .sidebar__menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li a {
+                display: flex;
+                align-items: center;
+                padding: 10px 20px;
+                text-decoration: none;
+
+                font-size: 15px;
+                font-weight: 500;
+                transition: background-color 0.2s ease;
+
+                &:hover {}
+            }
+        }
+
+        // Referrals badge
+        .referrals {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+
+            .badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                background: var(--badge-bg);
+                padding: 4px 8px;
+                border-radius: 4px;
+                font-size: 13px;
+                font-weight: 500;
+                &:hover{
+                svg{
+                        color: var(--icon-active);
+                }
+                }
+            }
+        }
+
+        // "Switch Accounts" label
+        .sidebar__switch-accounts {
+            padding: 16px 20px 0px 20px;
+
+            .switch-accounts-label {
+                font-size: 13px;
+                font-weight: 500;
+                color: var(--color-tertiary);
+            }
+        }
+
+        // Separator line
+        .sidebar__separator {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 4px 0;
+        }
+
+        // Account List specific styles
+        .accounts-list {
+            .icon-grid {
+                margin-right: 12px;
+                
+            }
+
+            .account-icon {
+                width: 28px;
+                height: 28px;
+                border-radius: 6px;
+                margin-right: 12px;
+            }
+
+            .icon-check {
+                margin-left: auto;
+                color: var(--icon-active);
+                
+            }
+
+            a.active {
+                font-weight: 600;
+            }
+        }
+    }
 }
 
-.nav-item-wrapper{
+.nav-item-wrapper {
     @include flex-row(flex-start, center);
     border-radius: 8px;
     overflow: hidden;
-     .nav-item{
+
+    .nav-item {
         color: var(--color-primary); // On hover, text becomes the primary sidebar color
         background-color: transparent;
+
         &:hover {
-        color: var(--color-secondary); // On hover, text becomes the primary sidebar color
+            color: var(--color-secondary); // On hover, text becomes the primary sidebar color
         }
-     }
-      &:hover {
+    }
+
+    &:hover {
         background-color: var(--sidebar-item-active-bg);
     }
-    .nav-item-btn{
+
+    .nav-item-btn {
         @include flex-row(center, center);
         background: none;
         border: none;
         margin-left: auto;
         height: 36px;
         width: 36px;
+
         &:hover {
             cursor: pointer;
             background-color: var(--sidebar-item-active-bg);
         }
     }
-    
+
 }
-.nav-item-menu-box{
+
+.nav-item-menu-box {
     display: none
 }
+
 .nav-item {
     @include flex-row(flex-start, center);
     padding: 6px 8px;
@@ -119,18 +241,19 @@
     color: var(--color-primary);
     font-weight: font-weight(regular);
     font-size: font-size(base);
-    @include transition(color, background-color); 
+    @include transition(color, background-color);
 
     &:hover {
         color: var(--color-secondary);
         background-color: var(--sidebar-item-active-bg);
+
         .nav-item__icon {
             color: var(--color-secondary);
         }
     }
 
     &--active {
-        background-color: var(--sidebar-item-active-bg); 
+        background-color: var(--sidebar-item-active-bg);
         color: var(--color-secondary);
         font-weight: font-weight(semibold);
 
@@ -163,7 +286,7 @@
     }
 
     &__badge {
-        background-color: var(--badge-bg); 
+        background-color: var(--badge-bg);
         color: var(--badge-text);
         font-size: font-size(xs);
         font-weight: font-weight(semibold);

@@ -2,7 +2,7 @@
 @use '../abstracts/functions' as *;
 @use '../abstracts/mixins' as *;
 
-.page-wraper{
+.page-wraper {
     @include flex-row(flex-start);
     flex-grow: 1;
     isolation: isolate;
@@ -11,13 +11,59 @@
     gap: calc(100vw - 100%);
     background: var(--bg-default);
 }
-.main-content-box{
-    @include flex-col(flex-start,center,0);
+
+.main-content-box {
+    @include flex-col(flex-start, center, 0);
     flex-grow: 1;
     min-height: 100%;
     padding-inline-end: calc(100vw - 100%);
 
-    @include tabs{
-    padding: 20px;
+    @include tabs {
+        padding: 20px;
+    }
+}
+
+.dropdown-box {
+    position: relative;
+
+    &.active {
+        .drop-toggle-btn {
+            background-color: var(--sidebar-item-active-bg);
+        }
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        display: none;
+        padding: 4px;
+        z-index: 10;
+        background: var(--bg-dropdown);
+        box-shadow: 0 1px 4px 0 #b7bbdb24, 0 0 1px 0 #afb2cee6, 0 8px 12px 0 #0e0e2d14, 0 14px 20px 0 #04043405;
+        border-radius: 4px;
+        
+
+        * {
+            
+            color: var(--color-secondary);
+            font-size: font-size(base);
+            font-weight: font-weight(regular);
+        }
+
+        &.open {
+            display: flex !important;
+            flex-direction: column;
+        }
+
+        a {
+            padding: 8px 12px;
+            border-radius: 4px;
+
+            &:hover {
+                background-color: var(--sidebar-item-active-bg);
+                svg{
+                    color: var(--icon-active);
+                }
+            }
+        }
     }
 }
