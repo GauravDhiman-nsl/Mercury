@@ -1169,33 +1169,37 @@
                     </div>
                 </div>
 
+
                 <div class="transactions-container">
                     <header class="header">
                         <h1 class="title">Transactions</h1>
-                        <a href="#" class="view-all-link">View all ></a>
+                        <a href="#" class="view-all-link">View all<span class="icon">
+                                <svg width="7" height="10" aria-hidden="true" focusable="false" data-prefix="far" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right styles-module__iconRight_lgFFt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z"></path></svg>
+                            </span>
+                        </a>
                     </header>
 
                     <nav class="tabs">
                         <div role="tablist" aria-label="Transaction history">
                             <button role="tab" aria-selected="true" aria-controls="recent-panel" id="recent-tab"
                                 class="tab active">
-                                Recent
+                                <span>Recent</span>
                             </button>
                             <button role="tab" aria-selected="false" aria-controls="my-transactions-panel"
                                 id="my-transactions-tab" class="tab" tabindex="-1">
-                                My transactions
+                                <span>My transactions</span>
                             </button>
                             <button role="tab" aria-selected="false" aria-controls="monthly-money-in-panel"
                                 id="monthly-money-in-tab" class="tab" tabindex="-1">
-                                Monthly money in
+                                <span>Monthly money in</span>
                             </button>
                             <button role="tab" aria-selected="false" aria-controls="monthly-money-out-panel"
                                 id="monthly-money-out-tab" class="tab" tabindex="-1">
-                                Monthly money out
+                                <span>Monthly money out</span>
                             </button>
                             <button role="tab" aria-selected="false" aria-controls="operating-expenses-panel"
                                 id="operating-expenses-tab" class="tab" tabindex="-1">
-                                Operating expenses
+                                <span>Operating expenses</span>
                             </button>
                         </div>
                     </nav>
@@ -1205,8 +1209,8 @@
                             <table class="transactions-table">
                                 <thead>
                                     <tr>
-                                        <th><button class="sort-button">Date <svg width="8" height="12"
-                                                    viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <th><button class="sort-button">Date <svg width="8" height="12" viewBox="0 0 8 12"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M4 0L0 4H8L4 0Z" fill="black" />
                                                     <path d="M4 12L8 8H0L4 12Z" fill="#C4C4C4" />
                                                 </svg></button></th>
@@ -1311,12 +1315,12 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div id="my-transactions-panel" role="tabpanel" tabindex="0"
-                            aria-labelledby="my-transactions-tab" hidden>
+                        <div id="my-transactions-panel" role="tabpanel" tabindex="0" aria-labelledby="my-transactions-tab"
+                            hidden>
                             <p>My transactions content goes here.</p>
                         </div>
-                        <div id="monthly-money-in-panel" role="tabpanel" tabindex="0"
-                            aria-labelledby="monthly-money-in-tab" hidden>
+                        <div id="monthly-money-in-panel" role="tabpanel" tabindex="0" aria-labelledby="monthly-money-in-tab"
+                            hidden>
                             <p>Monthly money in content goes here.</p>
                         </div>
                         <div id="monthly-money-out-panel" role="tabpanel" tabindex="0"
@@ -1329,14 +1333,7 @@
                         </div>
                     </main>
                 </div>
-
             </div>
-
-
-
-
-
-
 
         </main>
 
