@@ -101,7 +101,7 @@
       display: block;
     }
     .x-axis {
-      @include flex-row(center,center);
+      @include flex-row(center,center,22px);
 
 
     span {
@@ -112,3 +112,5 @@
 
   
 }
+
+

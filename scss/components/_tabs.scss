@@ -10,7 +10,6 @@
     padding: 16px 0 0;
 }
 
-// Header
 .header {
     @include flex-center(flex-start, center);
     margin-bottom: 16px;
@@ -42,7 +41,7 @@
     }
 }
 
-// Tabs
+
 .tabs {
     [role="tablist"] {
         @include flex-row(flex-start, flex-start, 8px);
@@ -86,7 +85,7 @@
     }
 }
 
-// Transactions Table
+
 .transactions-table {
     width: 100%;
     border-collapse: collapse;
@@ -226,7 +225,7 @@
     }
 
 
-    // Logo and Icon Styles   
+    
 
     .logo-icon {
         @include flex-center(center, center);

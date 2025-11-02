@@ -8,7 +8,7 @@
 width: 100%;
 
 
-/* Header */
+
 .money-header {
 @include flex-row(flex-start,center,16px);
   flex-wrap: wrap;
@@ -23,7 +23,7 @@ width: 100%;
   color: var(--color-secondary);
 }
 
-/* Month Slider */
+
 .month-slider {
   @include flex-row(center,center,8px);
   font-size:font-size(base);
@@ -45,7 +45,7 @@ width: 100%;
   font-weight: 600;
 }
 
-/* Grid */
+
 .money-grid {
     @include grid(1fr 1fr);
   width: 100%;

@@ -261,4 +261,7 @@
         }   
     }
 
-    
+.char-grid-d  {
+    @include flex-center;
+    width: 100%;
+}  

@@ -11,9 +11,9 @@
     border-right: 1px solid var(--border);
     position: sticky;
     top: 0px;
-    @include flex-col(flex-start, stretch, 1.5rem); // Uses your mixin for layout
+    @include flex-col(flex-start, stretch, 1.5rem); 
 
-    // --- Sidebar Header ---
+    
     &__header {
         @include flex-row(space-between, center);
         padding: 0 10px;
@@ -54,7 +54,7 @@
             }
         }
 
-        // Icons will inherit their color from the parent's text color
+        
         svg {
             color: var(--color-primary);
             margin-left: auto;
@@ -66,12 +66,12 @@
         list-style: none;
         padding: 0 12px;
         margin: 0;
-        @include flex-col(flex-start, stretch, 4px); // Small gap between items
+        @include flex-col(flex-start, stretch, 4px); 
     }
 
 
     &__heading {
-        color: var(--color-tertiary); // Uses theme variable
+        color: var(--color-tertiary); 
         font-size: font-size(xs);
         font-weight: font-weight(semibold);
         text-transform: uppercase;
@@ -92,7 +92,7 @@
             margin-left: unset;
         }
 
-        // Custom Scrollbar
+        
         &::-webkit-scrollbar {
             width: 10px;
         }
@@ -102,12 +102,12 @@
         }
 
         &::-webkit-scrollbar-thumb {
-            background-color: #ccc;
+            background-color:var(--color-tertiary);
             border-radius: 10px;
-            border: 3px solid #ffffff;
+            border: 3px solid var(--border);
         }
 
-        // General list styling
+      
         .sidebar__menu-list {
             list-style: none;
             padding: 4px;
@@ -123,11 +123,11 @@
                 font-weight: 500;
                 transition: background-color 0.2s ease;
 
-                &:hover {}
+                
             }
         }
 
-        // Referrals badge
+     
         .referrals {
             display: flex;
             gap: 8px;
@@ -150,7 +150,7 @@
             }
         }
 
-        // "Switch Accounts" label
+       
         .sidebar__switch-accounts {
             padding: 16px 20px 0px 20px;
 
@@ -161,14 +161,14 @@
             }
         }
 
-        // Separator line
+        
         .sidebar__separator {
             border: none;
             border-top: 1px solid var(--border);
             margin: 4px 0;
         }
 
-        // Account List specific styles
+        
         .accounts-list {
             .icon-grid {
                 margin-right: 12px;
@@ -207,11 +207,11 @@
     overflow: hidden;
 
     .nav-item {
-        color: var(--color-primary); // On hover, text becomes the primary sidebar color
+        color: var(--color-primary); 
         background-color: transparent;
 
         &:hover {
-            color: var(--color-secondary); // On hover, text becomes the primary sidebar color
+            color: var(--color-secondary); 
         }
     }
 

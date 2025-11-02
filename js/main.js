@@ -1,86 +1,92 @@
-document.addEventListener('DOMContentLoaded', () => {
-  new MercuryChart('#mercury-balance-chart', { id: 'mercury-balance' });
+document.addEventListener("DOMContentLoaded", () => {
+  new MercuryChart("#mercury-balance-chart", { id: "mercury-balance" });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("iconToggle");
+  const leftIconEl = toggle.querySelector(".left-icon");
+  const rightIconEl = toggle.querySelector(".right-icon");
 
-
-/**
- * Accessible, customizable icon toggle switch
- * -------------------------------------------------
- * - Uses data-left-svg / data-right-svg OR data-left-icon / data-right-icon
- * - Handles click + Space/Enter
- * - Updates aria-checked
- * - Fires a custom 'togglechange' event
- */
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.getElementById('iconToggle');
-
-  // ------------------------------------------------------------------
-  // 1. Insert icons (SVG data-attribute has priority)
-  // ------------------------------------------------------------------
-  const leftIconEl  = toggle.querySelector('.left-icon');
-  const rightIconEl = toggle.querySelector('.right-icon');
-
-  const leftSVG  = toggle.dataset.leftSvg;
+  const leftSVG = toggle.dataset.leftSvg;
   const rightSVG = toggle.dataset.rightSvg;
 
-  if (leftSVG)  leftIconEl.innerHTML  = leftSVG;
-  else if (toggle.dataset.leftIcon)  leftIconEl.classList.add(toggle.dataset.leftIcon);
+  if (leftSVG) leftIconEl.innerHTML = leftSVG;
+  else if (toggle.dataset.leftIcon)
+    leftIconEl.classList.add(toggle.dataset.leftIcon);
 
   if (rightSVG) rightIconEl.innerHTML = rightSVG;
-  else if (toggle.dataset.rightIcon) rightIconEl.classList.add(toggle.dataset.rightIcon);
+  else if (toggle.dataset.rightIcon)
+    rightIconEl.classList.add(toggle.dataset.rightIcon);
+  const charGraphs = document.querySelectorAll(".char-graph-d");
+  const charGrids = document.querySelectorAll(".char-grid-d");
 
-  // ------------------------------------------------------------------
-  // 2. Helper: set checked state
-  // ------------------------------------------------------------------
+ const updateDisplay = (checked) => {
+  const charGraphs = document.querySelectorAll(".char-graph-d");
+  const charGrids = document.querySelectorAll(".char-grid-d");
+
+  if (charGraphs.length === 0 && charGrids.length === 0) return; // nothing to toggle
+
+  charGraphs.forEach((graph) => {
+    if (graph && graph.style) {
+      graph.style.display = checked ? "none" : "flex";
+    }
+  });
+
+  charGrids.forEach((grid) => {
+    if (grid && grid.style) {
+      grid.style.display = checked ? "flex" : "none";
+    }
+  });
+};
+
+
   const setChecked = (checked) => {
-    toggle.setAttribute('aria-checked', checked);
-    // custom event for external listeners
-    toggle.dispatchEvent(new CustomEvent('togglechange', {
-      detail: { checked }
-    }));
+    toggle.setAttribute("aria-checked", checked);
+    updateDisplay(checked);
+    toggle.dispatchEvent(
+      new CustomEvent("togglechange", {
+        detail: { checked },
+      })
+    );
   };
 
-  // ------------------------------------------------------------------
-  // 3. Interaction: click
-  // ------------------------------------------------------------------
-  toggle.addEventListener('click', () => {
-    const currently = toggle.getAttribute('aria-checked') === 'true';
+  toggle.addEventListener("click", () => {
+    const currently = toggle.getAttribute("aria-checked") === "true";
     setChecked(!currently);
   });
 
-  // ------------------------------------------------------------------
-  // 4. Interaction: keyboard (Space / Enter)
-  // ------------------------------------------------------------------
-  toggle.addEventListener('keydown', (e) => {
-    if (e.key === ' ' || e.key === 'Enter') {
-      e.preventDefault();               // prevent page scroll
-      const currently = toggle.getAttribute('aria-checked') === 'true';
+  toggle.addEventListener("keydown", (e) => {
+    if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      const currently = toggle.getAttribute("aria-checked") === "true";
       setChecked(!currently);
     }
   });
 
-  // ------------------------------------------------------------------
-  // 5. Optional: initialise from data-active attribute
-  // ------------------------------------------------------------------
-  if (toggle.hasAttribute('data-active')) {
+  if (toggle.hasAttribute("data-active")) {
     setChecked(true);
+  } else {
+    const initialChecked = toggle.getAttribute("aria-checked") === "true";
+    updateDisplay(initialChecked);
   }
 });
 
 
-
-
-
-
-/**
- * Money Movement Slider
- * - Only previous & current month
- * - Dynamic data per month
- * - Smooth transitions with .prev-month / .current-month classes
- */
-document.addEventListener('DOMContentLoaded', () => {
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+document.addEventListener("DOMContentLoaded", () => {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   const today = new Date();
   const currentYear = today.getFullYear();
   const currentMonthIndex = today.getMonth(); // Oct 2025 → 9
@@ -88,48 +94,64 @@ document.addEventListener('DOMContentLoaded', () => {
   let year = currentYear;
   let monthIndex = currentMonthIndex;
 
-  const display = document.getElementById('currentMonth');
-  const prevBtn = document.querySelector('.nav-btn.prev');
-  const nextBtn = document.querySelector('.nav-btn.next');
-  const grid = document.querySelector('.money-grid');
+  const display = document.getElementById("currentMonth");
+  const prevBtn = document.querySelector(".nav-btn.prev");
+  const nextBtn = document.querySelector(".nav-btn.next");
+  const grid = document.querySelector(".money-grid");
 
-  // DATA: Previous & Current Month
+
   const data = {
     current: {
-      in: { total: 107773.59, avg: 0, sources: [
-        { name: 'Google', amount: 48007.96, icon: 'img' },
-        { name: 'Orange, Inc.', amount: 24763.63, avatar: 'orange' },
-        { name: 'Milgram Brokerage', amount: 24210.79, avatar: 'mb' },
-        { name: 'Office Stop Co.', amount: 6721.18, avatar: 'os' }
-      ]},
-      out: { total: -209882.31, avg: -64200, sources: [
-        { name: 'Gusto (Payroll)', amount: -89453.18, avatar: 'gp' },
-        { name: 'Google', amount: -47366.03, icon: 'img' },
-        { name: 'Milgram Brokerage', amount: -30850.82, avatar: 'mb' },
-        { name: 'Orange, Inc.', amount: -29919.16, avatar: 'orange' }
-      ]}
+      in: {
+        total: 107773.59,
+        avg: 0,
+        sources: [
+          { name: "Google", amount: 48007.96, icon: "img" },
+          { name: "Orange, Inc.", amount: 24763.63, avatar: "orange" },
+          { name: "Milgram Brokerage", amount: 24210.79, avatar: "mb" },
+          { name: "Office Stop Co.", amount: 6721.18, avatar: "os" },
+        ],
+      },
+      out: {
+        total: -209882.31,
+        avg: -64200,
+        sources: [
+          { name: "Gusto (Payroll)", amount: -89453.18, avatar: "gp" },
+          { name: "Google", amount: -47366.03, icon: "img" },
+          { name: "Milgram Brokerage", amount: -30850.82, avatar: "mb" },
+          { name: "Orange, Inc.", amount: -29919.16, avatar: "orange" },
+        ],
+      },
     },
     previous: {
-      in: { total: 98765.42, avg: 0, sources: [
-        { name: 'Google', amount: 45210.33, icon: 'img' },
-        { name: 'Orange, Inc.', amount: 23100.12, avatar: 'orange' },
-        { name: 'Milgram Brokerage', amount: 22000.00, avatar: 'mb' },
-        { name: 'Office Stop Co.', amount: 8455.97, avatar: 'os' }
-      ]},
-      out: { total: -195432.10, avg: -61200, sources: [
-        { name: 'Gusto (Payroll)', amount: -85000.00, avatar: 'gp' },
-        { name: 'Google', amount: -45000.00, icon: 'img' },
-        { name: 'Milgram Brokerage', amount: -30000.00, avatar: 'mb' },
-        { name: 'Orange, Inc.', amount: -28000.00, avatar: 'orange' }
-      ]}
-    }
+      in: {
+        total: 98765.42,
+        avg: 0,
+        sources: [
+          { name: "Google", amount: 45210.33, icon: "img" },
+          { name: "Orange, Inc.", amount: 23100.12, avatar: "orange" },
+          { name: "Milgram Brokerage", amount: 22000.0, avatar: "mb" },
+          { name: "Office Stop Co.", amount: 8455.97, avatar: "os" },
+        ],
+      },
+      out: {
+        total: -195432.1,
+        avg: -61200,
+        sources: [
+          { name: "Gusto (Payroll)", amount: -85000.0, avatar: "gp" },
+          { name: "Google", amount: -45000.0, icon: "img" },
+          { name: "Milgram Brokerage", amount: -30000.0, avatar: "mb" },
+          { name: "Orange, Inc.", amount: -28000.0, avatar: "orange" },
+        ],
+      },
+    },
   };
 
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
     minimumFractionDigits: 2,
-    maximumFractionDigits: 2
+    maximumFractionDigits: 2,
   });
 
   const formatAmount = (val) => {
@@ -138,47 +160,71 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const renderSources = (listEl, sources) => {
-    listEl.innerHTML = sources.map(s => `
+    listEl.innerHTML = sources
+      .map(
+        (s) => `
       <div class="source-item">
         <dd class="source-name">
-          ${s.icon === 'img' 
-            ? `<img src="https://www.google.com/favicon.ico" alt="" width="16" height="16">` 
-            : `<span class="avatar ${s.avatar}">${s.name.split(' ').map(w => w[0]).join('').substring(0,2)}</span>`
+          ${
+            s.icon === "img"
+              ? `<img src="https://www.google.com/favicon.ico" alt="" width="16" height="16">`
+              : `<span class="avatar ${s.avatar}">${s.name
+                  .split(" ")
+                  .map((w) => w[0])
+                  .join("")
+                  .substring(0, 2)}</span>`
           }
           ${s.name}
         </dd>
-        <dd class="source-amount ${s.amount < 0 ? 'negative' : ''}">${formatAmount(s.amount)}</dd>
+        <dd class="source-amount ${
+          s.amount < 0 ? "negative" : ""
+        }">${formatAmount(s.amount)}</dd>
       </div>
-    `).join('');
+    `
+      )
+      .join("");
   };
 
   const updateData = () => {
     const isCurrent = year === currentYear && monthIndex === currentMonthIndex;
-    const key = isCurrent ? 'current' : 'previous';
+    const key = isCurrent ? "current" : "previous";
     const d = data[key];
 
-    // Add class for transition
-    grid.classList.add('fade');
-    setTimeout(() => grid.classList.remove('fade'), 300);
 
-    // Update totals
-    document.querySelector('[data-amount="in-total"]').textContent = formatAmount(d.in.total);
-    document.querySelector('[data-amount="out-total"]').textContent = formatAmount(d.out.total);
-    document.querySelector('[data-amount="in-avg"]').textContent = formatAmount(d.in.avg);
-    document.querySelector('[data-amount="out-avg"]').textContent = formatAmount(d.out.avg);
+    grid.classList.add("fade");
+    setTimeout(() => grid.classList.remove("fade"), 300);
 
-    // Update sources
+  
+    document.querySelector('[data-amount="in-total"]').textContent =
+      formatAmount(d.in.total);
+    document.querySelector('[data-amount="out-total"]').textContent =
+      formatAmount(d.out.total);
+    document.querySelector('[data-amount="in-avg"]').textContent = formatAmount(
+      d.in.avg
+    );
+    document.querySelector('[data-amount="out-avg"]').textContent =
+      formatAmount(d.out.avg);
+
+
     renderSources(document.querySelector('[data-sources="in"]'), d.in.sources);
-    renderSources(document.querySelector('[data-sources="out"]'), d.out.sources);
+    renderSources(
+      document.querySelector('[data-sources="out"]'),
+      d.out.sources
+    );
 
-    // Update ARIA
-    document.querySelector('.money-card.in').setAttribute('aria-label', `Income: ${formatAmount(d.in.total)}`);
-    document.querySelector('.money-card.out').setAttribute('aria-label', `Expenses: ${formatAmount(d.out.total)}`);
+ 
+    document
+      .querySelector(".money-card.in")
+      .setAttribute("aria-label", `Income: ${formatAmount(d.in.total)}`);
+    document
+      .querySelector(".money-card.out")
+      .setAttribute("aria-label", `Expenses: ${formatAmount(d.out.total)}`);
   };
 
   const updateMonth = () => {
     display.textContent = `${months[monthIndex]} ${year}`;
-    prevBtn.disabled = year === currentYear && monthIndex === currentMonthIndex - 1;
+    prevBtn.disabled =
+      year === currentYear && monthIndex === currentMonthIndex - 1;
     nextBtn.disabled = year === currentYear && monthIndex === currentMonthIndex;
     updateData();
   };
@@ -186,157 +232,242 @@ document.addEventListener('DOMContentLoaded', () => {
   prevBtn.onclick = () => {
     if (monthIndex === currentMonthIndex - 1 && year === currentYear) return;
     monthIndex--;
-    if (monthIndex < 0) { monthIndex = 11; year--; }
+    if (monthIndex < 0) {
+      monthIndex = 11;
+      year--;
+    }
     updateMonth();
   };
 
   nextBtn.onclick = () => {
     if (year === currentYear && monthIndex === currentMonthIndex) return;
     monthIndex++;
-    if (monthIndex > 11) { monthIndex = 0; year++; }
+    if (monthIndex > 11) {
+      monthIndex = 0;
+      year++;
+    }
     updateMonth();
   };
 
-  // Init
+
   updateMonth();
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const tabs = document.querySelectorAll(".tab");
+  const tabPanels = document.querySelectorAll('[role="tabpanel"]');
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    const tabs = document.querySelectorAll('.tab');
-    const tabPanels = document.querySelectorAll('[role="tabpanel"]');
-
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function (event) {
-            // Deactivate all tabs and hide all panels
-            tabs.forEach(t => {
-                t.classList.remove('active');
-                t.setAttribute('aria-selected', 'false');
-                t.setAttribute('tabindex', '-1');
-            });
-            tabPanels.forEach(p => {
-                p.hidden = true;
-            });
-
-            // Activate the clicked tab
-            const clickedTab = event.currentTarget;
-            clickedTab.classList.add('active');
-            clickedTab.setAttribute('aria-selected', 'true');
-            clickedTab.setAttribute('tabindex', '0');
-
-            // Show the corresponding tab panel
-            const controlledPanelId = clickedTab.getAttribute('aria-controls');
-            const controlledPanel = document.getElementById(controlledPanelId);
-            if (controlledPanel) {
-                controlledPanel.hidden = false;
-                controlledPanel.focus();
-            }
-        });
-    });
-});
-
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Get all necessary elements from the DOM
-    const toggleButton = document.getElementById('wizard-toggle-btn');
-    const wizardCard = document.getElementById('wizard-card');
-    const collapseHeader = document.getElementById('wizard-header-collapse');
-    const tabs = document.querySelectorAll('.wizard-tabs .tab-btn');
-
-    // --- Element Checks ---
-    if (!toggleButton || !wizardCard || !collapseHeader) {
-        console.error("Wizard component is missing required elements. Please check HTML IDs.");
-        return; // Stop the script if essential elements are missing
-    }
-
-    const openIcon = toggleButton.querySelector('.icon-open');
-    const closeIcon = toggleButton.querySelector('.icon-close');
-
-    // --- Functions ---
-    const showWizard = () => {
-        wizardCard.hidden = false;
-        openIcon.hidden = true;
-        closeIcon.hidden = false;
-        toggleButton.setAttribute('aria-expanded', 'true');
-    };
-    
-    const hideWizard = () => {
-        wizardCard.hidden = true;
-        openIcon.hidden = false;
-        closeIcon.hidden = true;
-        toggleButton.setAttribute('aria-expanded', 'false');
-    };
-
-    const toggleWizard = () => {
-        if (wizardCard.hidden) {
-            showWizard();
-        } else {
-            hideWizard();
-        }
-    };
-    
-    // --- Event Listeners ---
-    toggleButton.addEventListener('click', toggleWizard);
-    
-    // The header should ONLY close the wizard
-    collapseHeader.addEventListener('click', hideWizard);
-
-    // Tab switching logic (remains the same)
-    if (tabs.length > 0) {
-        tabs.forEach(tab => {
-            tab.addEventListener('click', (event) => {
-                tabs.forEach(t => t.classList.remove('active'));
-                event.currentTarget.classList.add('active');
-            });
-        });
-    }
-});
-
-
-  document.addEventListener('click', function(e) {
-    const toggleBtn = e.target.closest('.drop-toggle-btn');
-    const clickedBox = e.target.closest('.dropdown-box');
-    if (!clickedBox) {
-      document.querySelectorAll('.dropdown-box').forEach(box => {
-        box.classList.remove('active');
-        const menu = box.querySelector('.dropdown-menu');
-        if (menu) menu.classList.remove('open');
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", function (event) {
+  
+      tabs.forEach((t) => {
+        t.classList.remove("active");
+        t.setAttribute("aria-selected", "false");
+        t.setAttribute("tabindex", "-1");
       });
-      return;
-    }
-    if (clickedBox && !toggleBtn) {
-      return;
-    }
-    if (toggleBtn) {
-      const box = toggleBtn.closest('.dropdown-box');
-      const menu = box.querySelector('.dropdown-menu');
-      const isOpen = box.classList.contains('active');
+      tabPanels.forEach((p) => {
+        p.hidden = true;
+      });
 
-      if (isOpen) {
-        box.classList.remove('active');
-        menu.classList.remove('open');
-      } else {
-        document.querySelectorAll('.dropdown-box').forEach(other => {
-          if (other !== box) {
-            other.classList.remove('active');
-            const m = other.querySelector('.dropdown-menu');
-            if (m) m.classList.remove('open');
-          }
-        });
-        box.classList.add('active');
-        menu.classList.add('open');
+    
+      const clickedTab = event.currentTarget;
+      clickedTab.classList.add("active");
+      clickedTab.setAttribute("aria-selected", "true");
+      clickedTab.setAttribute("tabindex", "0");
+
+   
+      const controlledPanelId = clickedTab.getAttribute("aria-controls");
+      const controlledPanel = document.getElementById(controlledPanelId);
+      if (controlledPanel) {
+        controlledPanel.hidden = false;
+        controlledPanel.focus();
       }
-    }
+    });
   });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.dropdown-box').forEach(box => {
-        box.classList.remove('active');
-        const menu = box.querySelector('.dropdown-menu');
-        if (menu) menu.classList.remove('open');
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+ 
+  const toggleButton = document.getElementById("wizard-toggle-btn");
+  const wizardCard = document.getElementById("wizard-card");
+  const collapseHeader = document.getElementById("wizard-header-collapse");
+  const tabs = document.querySelectorAll(".wizard-tabs .tab-btn");
+
+
+  if (!toggleButton || !wizardCard || !collapseHeader) {
+    console.error(
+      "Wizard component is missing required elements. Please check HTML IDs."
+    );
+    return; 
+  }
+
+  const openIcon = toggleButton.querySelector(".icon-open");
+  const closeIcon = toggleButton.querySelector(".icon-close");
+
+ 
+  const showWizard = () => {
+    wizardCard.hidden = false;
+    openIcon.hidden = true;
+    closeIcon.hidden = false;
+    toggleButton.setAttribute("aria-expanded", "true");
+  };
+
+  const hideWizard = () => {
+    wizardCard.hidden = true;
+    openIcon.hidden = false;
+    closeIcon.hidden = true;
+    toggleButton.setAttribute("aria-expanded", "false");
+  };
+
+  const toggleWizard = () => {
+    if (wizardCard.hidden) {
+      showWizard();
+    } else {
+      hideWizard();
+    }
+  };
+
+  
+  toggleButton.addEventListener("click", toggleWizard);
+
+
+  collapseHeader.addEventListener("click", hideWizard);
+
+
+  if (tabs.length > 0) {
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", (event) => {
+        tabs.forEach((t) => t.classList.remove("active"));
+        event.currentTarget.classList.add("active");
       });
+    });
+  }
+});
+
+document.addEventListener("click", function (e) {
+  const toggleBtn = e.target.closest(".drop-toggle-btn");
+  const clickedBox = e.target.closest(".dropdown-box");
+  if (!clickedBox) {
+    document.querySelectorAll(".dropdown-box").forEach((box) => {
+      box.classList.remove("active");
+      const menu = box.querySelector(".dropdown-menu");
+      if (menu) menu.classList.remove("open");
+    });
+    return;
+  }
+  if (clickedBox && !toggleBtn) {
+    return;
+  }
+  if (toggleBtn) {
+    const box = toggleBtn.closest(".dropdown-box");
+    const menu = box.querySelector(".dropdown-menu");
+    const isOpen = box.classList.contains("active");
+
+    if (isOpen) {
+      box.classList.remove("active");
+      menu.classList.remove("open");
+    } else {
+      document.querySelectorAll(".dropdown-box").forEach((other) => {
+        if (other !== box) {
+          other.classList.remove("active");
+          const m = other.querySelector(".dropdown-menu");
+          if (m) m.classList.remove("open");
+        }
+      });
+      box.classList.add("active");
+      menu.classList.add("open");
     }
+  }
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    document.querySelectorAll(".dropdown-box").forEach((box) => {
+      box.classList.remove("active");
+      const menu = box.querySelector(".dropdown-menu");
+      if (menu) menu.classList.remove("open");
+    });
+  }
+});
+
+
+(() => {
+  const STORAGE_KEY = 'app-theme';
+  const ROOT = document.documentElement;
+  const MENU = document.querySelector('.sub-dropdownmenu');
+  const CURRENT_TEXT = document.querySelector('.current-theme-selected');
+
+  const THEMES = {
+    system: { label: 'System default', class: null },
+    light:  { label: 'Light mode',    class: 'light' },
+    dark:   { label: 'Dark mode',     class: 'dark' }
+  };
+
+  const CHECK_SVG = createCheckSVG();
+  function createCheckSVG() {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    const attrs = {
+      'aria-hidden': 'true',
+      'focusable': 'false',
+      'data-prefix': 'far',
+      'data-icon': 'check',
+      'class': 'dropdown-icons',
+      'role': 'img',
+      'viewBox': '0 0 448 512',
+      'width': '11',
+      'color': 'var(--ds-icon-tertiary)'
+    };
+    Object.entries(attrs).forEach(([k, v]) => svg.setAttribute(k, v));
+
+    const path = document.createElementNS(svg.namespaceURI, 'path');
+    path.setAttribute('fill', 'currentColor');
+    path.setAttribute('d', 'M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z');
+    svg.appendChild(path);
+    return svg;
+  }
+
+  const applyTheme = (theme) => {
+    ROOT.classList.remove('light', 'dark');
+    if (THEMES[theme]?.class) {
+      ROOT.classList.add(THEMES[theme].class);
+    }
+
+    CURRENT_TEXT.textContent = THEMES[theme].label;
+
+    MENU.querySelectorAll('svg[data-icon="check"]').forEach(el => el.remove());
+    const target = MENU.querySelector(`[data-theme="${theme}"]`);
+    if (target) target.prepend(CHECK_SVG.cloneNode(true));
+  };
+
+  const saveAndApply = (theme) => {
+    localStorage.setItem(STORAGE_KEY, theme);
+    applyTheme(theme);
+  };
+
+  const syncWithSystem = () => {
+    if (localStorage.getItem(STORAGE_KEY) === 'system') {
+      applyTheme('system');
+    }
+  };
+
+  if (window.matchMedia) {
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    media.addEventListener('change', syncWithSystem);
+  }
+
+  MENU.addEventListener('click', (e) => {
+    const btn = e.target.closest('a[data-theme]');
+    if (!btn) return;
+    e.preventDefault();
+
+    const theme = btn.dataset.theme;
+    if (!THEMES[theme]) return;
+
+    saveAndApply(theme);
   });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    const theme = saved && THEMES[saved] ? saved : 'system';
+    saveAndApply(theme);
+  });
+})();

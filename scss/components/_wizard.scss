@@ -4,7 +4,7 @@
 @use '../themes/dark' as *;
 @use '../themes/default' as *;
 
-// Wizard component styles
+
 .wizard-container {
     @include flex-center(flex-start, flex-end);
     flex-direction: column;

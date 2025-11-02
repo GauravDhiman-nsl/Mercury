@@ -25,7 +25,7 @@
     .toggle-knob {
       transform: translateX(calc(#{82.53px} - #{40.66px} - #{1px} * 2));
     }
-
+    
     .icon.left-icon  {  color: var(--color-tertiary); }
     .icon.right-icon { color: var(--icon-active); }
   }

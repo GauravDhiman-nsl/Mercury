@@ -197,6 +197,37 @@ p, .meta, .secondary {
   --box-shadow-02: #0404341a;
 }
 
+html.light {
+  --bg-default: #fff;
+  --bg-default-secondary: #fff;
+  --color-white: #fff;
+  --color-primary: #363644;
+  --color-secondary: #1e1e2a;
+  --color-tertiary: #70707d;
+  --sidebar-bg: #fbfcfd;
+  --accent: #465bd1;
+  --border: #70739329;
+  --sidebar-item-active-bg: #7073930f;
+  --sidebar-item-active-text: var(--color-secondary);
+  --badge-bg: #5266eb1a;
+  --badge-text: var(--color-primary);
+  --bg-secondary: #7073931a;
+  --bg-secondary-hover: #70739329;
+  --icon-active: #5266eb;
+  --placeholder-text: #9d9da8;
+  --bg-alphabet: #d3e3d8;
+  --color-green: #188554;
+  --link-text: #5266eb;
+  --color-secondary-light: #535461;
+  --bg-dropdown: #fff;
+  --error-border-color: #d0327538;
+  --error-color: #d03275;
+  --user-info-border: #cce8ea;
+  --text-emphasized: #1e1e2a;
+  --box-shadow-01: #afb2ce8f;
+  --box-shadow-02: #0404341a;
+}
+
 @media (prefers-color-scheme: dark) {
   :root,
   [data-theme=dark] {
@@ -230,6 +261,37 @@ p, .meta, .secondary {
     --box-shadow-02: #0404341a;
   }
 }
+html.dark {
+  --bg-default: #171721;
+  --bg-default-secondary: #1e1e2a;
+  --color-white: #fff;
+  --color-primary: #dddde5;
+  --color-secondary: #fff;
+  --color-tertiary: #9d9da8;
+  --sidebar-bg: #10101a;
+  --accent: #5266eb;
+  --border: #b4b7c81f;
+  --sidebar-item-active-bg: #b4b7c814;
+  --sidebar-item-active-text: var(--color-secondary);
+  --badge-bg: #5266eb1a;
+  --badge-text: var(--color-primary);
+  --bg-secondary: #b4b7c81f;
+  --bg-secondary-hover: #70739329;
+  --icon-active: #5266eb;
+  --placeholder-text: #70707d;
+  --bg-alphabet: #d3e3d8;
+  --color-green: #77c599;
+  --bg-dropdown: #272735;
+  --user-info-border: #183d4a;
+  --link-text: #8da4f5;
+  --color-secondary-light: #c3c3cc;
+  --error-border-color: #fc92b45c;
+  --error-color: #fc92b4;
+  --text-emphasized: #f4f5f9;
+  --box-shadow-01: #afb2ce8f;
+  --box-shadow-02: #0404341a;
+}
+
 .button {
   display: flex;
   justify-content: center;
@@ -732,6 +794,13 @@ p, .meta, .secondary {
   text-decoration: underline;
 }
 
+.char-grid-d {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .nav-pill-box {
   display: flex;
   flex-direction: row;
@@ -900,7 +969,7 @@ p, .meta, .secondary {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 0;
+  gap: 22px;
 }
 .chart-card .chart-container .x-axis span {
   display: flex;
@@ -1003,7 +1072,6 @@ p, .meta, .secondary {
   align-items: center;
   gap: 24px;
   width: 100%;
-  /* Header */
 }
 .money-movement .money-header {
   display: flex;
@@ -1019,9 +1087,6 @@ p, .meta, .secondary {
   font-weight: 600;
   margin: 0;
   color: var(--color-secondary);
-}
-.money-movement {
-  /* Month Slider */
 }
 .money-movement .month-slider {
   display: flex;
@@ -1042,9 +1107,6 @@ p, .meta, .secondary {
   min-width: 80px;
   text-align: center;
   font-weight: 600;
-}
-.money-movement {
-  /* Grid */
 }
 .money-movement .money-grid {
   display: grid;
@@ -2019,9 +2081,9 @@ ul.sub-dropdownmenu {
   background: transparent;
 }
 .sidebar__menu::-webkit-scrollbar-thumb {
-  background-color: #ccc;
+  background-color: var(--color-tertiary);
   border-radius: 10px;
-  border: 3px solid #ffffff;
+  border: 3px solid var(--border);
 }
 .sidebar__menu .sidebar__menu-list {
   list-style: none;

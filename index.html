@@ -538,11 +538,11 @@
                             </ul>
                             <hr>
                             <ul>
-                                <li class="sub-drop-toggle"><a class="sub-menu-tgl-btn" href="#" role="button"
+                                <li class="sub-drop-toggle"><a class="sub-menu-tgl-btn " href="#" role="button"
                                         aria-label="theme switch">
                                         <span class="btn-text-wrapper">
                                             <span>Appearance</span>
-                                            <small>System default</small>
+                                            <small class="current-theme-selected">System default</small>
                                         </span>
                                         <svg width="10" height="16" class="dropdown-icons" aria-hidden="true"
                                             focusable="false" data-prefix="far" data-icon="chevron-right"
@@ -555,7 +555,7 @@
                                     </a>
                                     <ul class="sub-dropdownmenu">
                                         <div class="sub-menu-wrapper">
-                                            <li><a class="sub-menu-tgl-btn" href="#" role="button"
+                                            <li><a class="sub-menu-tgl-btn system-default-theme" data-theme="system" href="#" role="button"
                                                     aria-label="theme switch">
                                                     <svg aria-hidden="true" focusable="false" data-prefix="far"
                                                         data-icon="check" class="dropdown-icons" role="img"
@@ -572,10 +572,10 @@
                                                     </span>
 
                                                 </a></li>
-                                            <li><a href="#">
+                                            <li><a href="#" class="dark-theme" data-theme="dark">
                                                     <span>Dark mode</span>
                                                 </a></li>
-                                            <li><a href="#">
+                                            <li><a href="#" class="light-theme" data-theme="light">
                                                     <span>Light mode</span>
                                                 </a></li>
                                         </div>
@@ -750,13 +750,13 @@
                                 <div class="balance-box-card">
                                 <div class="balance">$<span id="mercury-balance-balance">5,097,429.63</span></div>
                                 </div>
-                                <div class="card-subtitlebox-row">
+                                <div class="card-subtitlebox-row char-graph-d">
                                 <div class="subtitle">
                                     <span id="mercury-balance-period-text">Last 30 days <span
                                             class="dropdown">&#9660;</span></span>
                                     <span id="mercury-balance-date-text" style="display: none;">October 10, 2025</span>
                                 </div>
-                                <div id="mercury-balance-default-changes" class="default-changes">
+                                <div id="mercury-balance-default-changes char-graph-d" class="default-changes">
                                     <span id="mercury-balance-total-change-span" class="change-item positive">
                                         <span class="arrow">&#9650;</span>
                                         <span id="mercury-balance-total-val">$1.7M</span>
@@ -766,14 +766,13 @@
                                         <span id="mercury-balance-daily-default-val">-$4k</span>
                                     </span>
                                 </div>
-                                <div id="mercury-balance-hover-change" class="change" style="display: flex;">
+                                <div id="mercury-balance-hover-change char-graph-d" class="change">
                                     <span id="mercury-balance-hover-arrow" class="arrow"> &#9660;</span>
                                     <span id="mercury-balance-hover-delta" class="delta">-$102,076.3</span>
                                 </div>
                                 </div>
                             </div>
-                            <!-- Graph section - JS injects here -->
-                            <div class="chart-container">
+                            <div class="chart-container char-graph-d">
                                 <svg id="mercury-balance-chart" viewBox="0 0 400 140" preserveAspectRatio="none"
                                     width="400" height="120"></svg>
                                 <div class="x-axis">
@@ -783,6 +782,9 @@
                                     <span style="left: 240px;">Oct 17</span>
                                     <span style="left: 320px;">Oct 22</span>
                                 </div>
+                            </div>
+                            <div class="char-grid-d">
+                                In Progress
                             </div>
 
                         </div>

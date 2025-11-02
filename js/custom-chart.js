@@ -1,4 +1,3 @@
-// Mercury/js/custom-chart.js (graph-only: injects SVG paths, handles interactions)
 class MercuryChart {
   constructor(containerInput, config = {}) {
     if (typeof containerInput === 'string') {
@@ -59,30 +58,28 @@ class MercuryChart {
   }
 
   generateSampleData() {
-    const baseDate = new Date(2025, 9, 2); // Oct 2
-    const numDays = 21; // To Oct 22
+    const baseDate = new Date(2025, 9, 2); 
+    const numDays = 21; 
     this.config.data = [];
-    const startValue = this.config.currentBalance - 1700000; // Total change
+    const startValue = this.config.currentBalance - 1700000;
     for (let i = 0; i < numDays; i++) {
       const date = new Date(baseDate);
       date.setDate(baseDate.getDate() + i);
-      // Curvy: multi-sine for smooth waves
-      const wiggle1 = Math.sin(i * Math.PI / 3) * 20000; // Main wave
-      const wiggle2 = Math.sin(i * Math.PI / 1.5 + 1) * 8000; // Secondary curve
+      const wiggle1 = Math.sin(i * Math.PI / 3) * 20000; 
+      const wiggle2 = Math.sin(i * Math.PI / 1.5 + 1) * 8000; 
       const linear = startValue + (1700000 * i / (numDays - 1));
       this.config.data.push({
         date,
         value: linear + wiggle1 + wiggle2
       });
     }
-    // Exact point for Oct 10 (day 8)
     this.config.data[8].value = this.config.knownPoints.oct10.balance;
   }
 
   initGraph() {
     this.setupSVG();
     this.attachEvents();
-    this.updateDisplay(8, true); // Initial on Oct 10
+    this.updateDisplay(8, true); 
   }
 
   setupSVG() {
